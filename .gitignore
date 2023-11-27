@@ -1,0 +1,17 @@
+/.idea
+
+# dependencies
+/client/node_modules
+/server/node_modules
+
+# next.js
+/client/.next/
+
+# production
+/client/build
+/server/dist
+
+# local env files
+/client/.environment
+/server/.environment
+.env*.local

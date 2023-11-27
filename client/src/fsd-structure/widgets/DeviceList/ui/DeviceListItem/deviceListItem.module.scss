@@ -1,0 +1,24 @@
+.listItem {
+    margin-top: 8px;
+    text-overflow: ellipsis;
+
+    &Button {
+        overflow: hidden;
+        display: flex;
+        max-height: 48px;
+        text-overflow: ellipsis;
+        color: #fff;
+
+        .itemName {
+            max-height: 100%;
+            padding-left: 8px;
+            text-align: left;
+            display: -webkit-box;
+            -webkit-line-clamp: 3;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+    }
+
+}

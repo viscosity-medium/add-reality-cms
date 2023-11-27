@@ -1,0 +1,12 @@
+.body {
+    width: 100vw;
+    height: 100vh;
+
+    .main {
+        display: flex;
+        width: 100%;
+        min-height: 100vh;
+        background: linear-gradient(90deg, #e23482 3.26%,#7a27f1 98.07%);
+    }
+
+}
