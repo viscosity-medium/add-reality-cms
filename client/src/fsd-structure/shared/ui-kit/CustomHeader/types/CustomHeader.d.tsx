@@ -1,0 +1,19 @@
+import {ReactNode} from "react";
+import { HProps } from "@/fsd-structure/shared";
+
+export enum CustomHeaders {
+    h1 = "h1",
+    h2 = "h2",
+    h3 = "h3",
+    h4 = "h4",
+    h5 = "h5",
+    h6 = "h6",
+}
+
+export type CustomHeader = `${CustomHeaders}`;
+
+export interface CustomHeaderProps extends HProps {
+    tag: CustomHeader,
+    children: ReactNode
+    isColored?: boolean
+}

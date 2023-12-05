@@ -1,8 +1,8 @@
 'use client'
 
-import { Aside, Div, H2, Ul } from "@/fsd-structure/shared";
-import { deviceListTestData } from "../../model/deviceList.testData";
-import { DeviceListItem } from "../DeviceListItem/DeviceListItem";
+import {Aside, CustomButton, CustomHeader, defineMargins, Div, Ul} from "@/fsd-structure/shared";
+import {deviceListTestData} from "../../model/deviceList.testData";
+import {DeviceListItem} from "../DeviceListItem/DeviceListItem";
 import cls from "./deviceList.module.scss";
 
 const DeviceList = () => {
@@ -11,15 +11,15 @@ const DeviceList = () => {
         <Aside
             className={cls.aside}
         >
-
             <Div
                 className={cls.deviceListOuterWrapper}
             >
-                <H2
+                <CustomHeader
+                    tag={"h3"}
                     className={cls.h2Header}
                 >
                     Список устройств
-                </H2>
+                </CustomHeader>
                 <Div
                     className={cls.deviceListInnerWrapper}
                 >
@@ -31,10 +31,10 @@ const DeviceList = () => {
                                 id,
                                 name,
                                 xmlResource
-                            }) => {
+                            }, index) => {
                                 return(
                                     <DeviceListItem
-                                        key={`${id}-${name}`}
+                                        key={`${id}-${name}-${index}`}
                                         id={id}
                                         name={name}
                                         xmlResource={xmlResource}
@@ -44,6 +44,15 @@ const DeviceList = () => {
                         }
                     </Ul>
                 </Div>
+                <CustomButton
+                    customWidth={"fullWidth"}
+                    styleType={"default"}
+                    className={defineMargins({
+                        marginTop: "mt16"
+                    })}
+                >
+                    Зарегистрировать плеер
+                </CustomButton>
             </Div>
         </Aside>
     );

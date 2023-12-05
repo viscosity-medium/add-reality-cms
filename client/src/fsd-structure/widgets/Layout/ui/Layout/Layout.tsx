@@ -2,8 +2,9 @@ import type { Metadata } from 'next'
 import { ReactNode } from "react";
 import { Inter } from 'next/font/google'
 import '../../../../../app/globals.css'
-import { Body, HTML, joinClasses, Main } from "@/fsd-structure/shared";
+import { Body, HTML, joinClassnames, Main } from "@/fsd-structure/shared";
 import cls from "./layout.module.scss";
+import {ProvidersWrapper} from "@/config/providers/ProvidersWrapper";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -18,20 +19,22 @@ export default function RootLayout({
     children: ReactNode
 }) {
     return (
-        <HTML
-            lang="en"
-        >
-            <Body
-                className={joinClasses([cls.body, inter.className])}
+        <ProvidersWrapper>
+            <HTML
+                lang="en"
             >
-                <Main
-                    className={cls.main}
+                <Body
+                    className={joinClassnames([cls.body, inter.className])}
                 >
-                    {
-                        children
-                    }
-                </Main>
-            </Body>
-        </HTML>
+                    <Main
+                        className={cls.main}
+                    >
+                        {
+                            children
+                        }
+                    </Main>
+                </Body>
+            </HTML>
+        </ProvidersWrapper>
     )
 }

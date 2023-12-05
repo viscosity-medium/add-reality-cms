@@ -1,0 +1,171 @@
+$itemSize: 160px;
+$overlaySize: $itemSize - 5px;
+
+.fileUploader {
+    display: flex;
+    justify-content: start;
+    flex-shrink: 0;
+    overflow-y: auto;
+    flex-wrap: wrap;
+    margin-top: 12px;
+    max-height: 368px;
+    width: 100%;
+}
+
+.itemWrapper, .fileUploadArea {
+    height: $itemSize;
+    width: $itemSize;
+    margin: 12px 8px;
+    border-radius: 14px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+}
+
+.itemWrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 3px;
+    background: linear-gradient(90deg, #e23482 3.26%,#7a27f1 98.07%);
+
+}
+
+.previewItem {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 12px;
+    pointer-events: none;
+}
+
+.infoOverlay {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: $overlaySize;
+    height: $overlaySize;
+    border-radius: 12px;
+    overflow: hidden;
+
+    .deleteButton {
+        position: relative;
+        z-index: 1;
+        align-self: flex-end;
+        margin: 4px;
+        width: 20px;
+        height: 20px;
+        border-radius: 10px;
+        background-color: #ffffff;
+        opacity: 0;
+        pointer-events: none;
+        transition: 0.3s;
+
+        &:hover {
+            @media (hover: hover) and (pointer: fine) {
+                transform: scale(1.1);
+                box-shadow: 0 0 8px rgba(243, 225, 225, 0.8);
+            }
+        }
+
+        .h {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 80%;
+            height: 1px;
+            border: none;
+            border-radius: 2px;
+            background-color: #e50431;
+        }
+        // #e50431
+        // #f92751
+
+        .hr1 {
+            transform: translate(-50%, -50%) rotate(-45deg);
+        }
+        .hr2 {
+            transform: translate(-50%, -50%) rotate(45deg);
+        }
+    }
+
+    .filenameWrapper {
+        position: absolute;
+        overflow-y: auto;
+        bottom: 0;
+        padding: 4px 6px 8px;
+        width: 100%;
+        transform: translateY(100%);
+        word-break: break-word;
+        background: linear-gradient(90deg, #e23482 3.26%,#7a27f1 98.07%);
+        transition: 0.3s;
+        transition-timing-function: ease-in-out;
+
+        p {
+            overflow-y: auto;
+            max-height: 144px;
+            color: #ffffff;
+            font-size: 14px;
+            font-weight: 300;
+        }
+
+    }
+
+    &:hover {
+        //@media (hover: hover) and (pointer: fine) {
+        //    transform: scale(1.1);
+        //    box-shadow: 0 0 8px rgba(243, 225, 225, 0.8);
+        //}
+        .filenameWrapper {
+            transform: translateY(0%);
+        }
+        .deleteButton {
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}
+
+.fileUploadArea {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 2px dashed #009688;
+    color: #009688;
+    transition: 0.3s;
+
+    &:hover {
+        @media (hover: hover) and (pointer: fine) {
+            transform: scale(1.05);
+            box-shadow: 0 0 8px #0092ff;
+        }
+
+    }
+
+    &Text {
+        padding: 20px;
+        font-size: 13px;
+    }
+
+    &Instruction {
+        font-size: 9px;
+        position: absolute;
+        bottom: 10px;
+    }
+
+}
+
+
+.inputFile {
+    display: none;
+}
+
+.isHidden {
+    opacity: 0;
+    pointer-events: none;
+}

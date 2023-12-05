@@ -1,22 +1,27 @@
-import {DetailedHTMLProps, FC, InputHTMLAttributes} from "react";
+import {DetailedHTMLProps, forwardRef, InputHTMLAttributes} from "react";
 
 interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
-const Input: FC<InputProps> = ({
+const Input = forwardRef<HTMLInputElement, InputProps>(({
     children,
     className,
-    ...otherProps
-}) => {
+    type,
+    onChange,
+    ...otherInputProps
+}, ref) => {
+
     return (
         <input
+            ref={ref}
+            type={type}
             className={className}
-            {...otherProps}
-        >
-            {
-                children
-            }
-        </input>
+            onChange={onChange}
+            {...otherInputProps}
+        />
     );
-};
+
+});
+
+Input.displayName="Input";
 
 export default Input;

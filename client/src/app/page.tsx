@@ -1,12 +1,9 @@
-import {DeviceList, ScheduleInformation} from "@/fsd-structure/widgets";
+import {MainPage} from "@/fsd-structure/pages";
 
 export default function Home() {
 
     return (
-        <>
-            <DeviceList/>
-            <ScheduleInformation/>
-        </>
+        <MainPage/>
     )
 
 }

@@ -1,0 +1,47 @@
+.button {
+
+    height: 52px;
+    color: #ffffff;
+    font-size: 18px;
+    transition: 0.3s;
+    border-radius: 30px;
+
+    &:hover {
+        @media (hover: hover) and (pointer: fine) {
+            scale: 1.05;
+        }
+    }
+
+}
+
+.default {
+    background: #ffffff;
+    color: #5610be;
+}
+
+.colored {
+    background: linear-gradient(90deg, #e23482 3.26%,#7a27f1 98.07%);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.45);
+}
+
+.transparent {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+}
+
+.smallWidth {
+
+}
+
+.defaultWidth {
+    width: 200px;
+}
+
+.bigWidth {
+
+}
+
+.fullWidth {
+    width: 100%;
+}

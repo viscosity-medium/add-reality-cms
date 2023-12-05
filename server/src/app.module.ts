@@ -2,6 +2,8 @@ import {Module} from '@nestjs/common';
 import {AppService} from './app.service';
 import {ConfigModule} from "@nestjs/config";
 import {FileSystemModule} from './file-system/file-system.module';
+import { FileTransferModule } from './file-transfer/file-transfer.module';
+import { JsonDatabaseModule } from './json-database/json-database.module';
 import * as process from "process";
 
 @Module({
@@ -9,7 +11,9 @@ import * as process from "process";
         ConfigModule.forRoot({
             envFilePath: `./.environment/.${process.env.NODE_ENV}.env`
         }),
-        FileSystemModule
+        FileSystemModule,
+        FileTransferModule,
+        JsonDatabaseModule
     ],
     providers: [AppService],
 })

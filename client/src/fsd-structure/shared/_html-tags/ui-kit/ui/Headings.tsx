@@ -25,14 +25,14 @@ const H2: FC<HProps> = ({
     ...otherProps
 }) => {
     return (
-        <h1
+        <h2
             className={className}
             {...otherProps}
         >
             {
                 children
             }
-        </h1>
+        </h2>
     );
 };
 const H3: FC<HProps> = ({
@@ -41,14 +41,14 @@ const H3: FC<HProps> = ({
     ...otherProps
 }) => {
     return (
-        <h1
+        <h3
             className={className}
             {...otherProps}
         >
             {
                 children
             }
-        </h1>
+        </h3>
     );
 };
 const H4: FC<HProps> = ({
@@ -57,14 +57,14 @@ const H4: FC<HProps> = ({
     ...otherProps
 }) => {
     return (
-        <h1
+        <h4
             className={className}
             {...otherProps}
         >
             {
                 children
             }
-        </h1>
+        </h4>
     );
 };
 const H5: FC<HProps> = ({
@@ -73,14 +73,14 @@ const H5: FC<HProps> = ({
     ...otherProps
 }) => {
     return (
-        <h1
+        <h5
             className={className}
             {...otherProps}
         >
             {
                 children
             }
-        </h1>
+        </h5>
     );
 };
 const H6: FC<HProps> = ({
@@ -89,17 +89,18 @@ const H6: FC<HProps> = ({
     ...otherProps
 }) => {
     return (
-        <h1
+        <h6
             className={className}
             {...otherProps}
         >
             {
                 children
             }
-        </h1>
+        </h6>
     );
 };
 
 export {
-    H1, H2, H3, H4, H5, H6
+    H1, H2, H3, H4, H5, H6,
+    type HProps
 };

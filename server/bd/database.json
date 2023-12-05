@@ -1,0 +1,46 @@
+{
+    "media": [
+        {
+            "id": "a6410cfc-167b-4fb8-8291-d33e91a7e195",
+            "name": "Viscosity.medium_album_x4.jpg",
+            "type": "image/jpeg",
+            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\a6410cfc-167b-4fb8-8291-d33e91a7e195.jpeg",
+            "extension": "jpeg"
+        },
+        {
+            "id": "201769f2-e66b-4561-9ebc-fc223063b62e",
+            "name": "Viscosity.medium_Black-rainbows.jpg",
+            "type": "image/jpeg",
+            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\201769f2-e66b-4561-9ebc-fc223063b62e.jpeg",
+            "extension": "jpeg"
+        },
+        {
+            "id": "56873359-fba4-464c-b320-4d897129e031",
+            "name": "Viscosity-medium_Indians_Pt-_I.mp4",
+            "type": "video/mp4",
+            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\56873359-fba4-464c-b320-4d897129e031.mp4",
+            "extension": "mp4"
+        },
+        {
+            "id": "0b5d4aa6-902e-4114-aa9c-c40cb33d4c4e",
+            "name": "Viscosity-medium_Black-Rainbows.mp4",
+            "type": "video/mp4",
+            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\0b5d4aa6-902e-4114-aa9c-c40cb33d4c4e.mp4",
+            "extension": "mp4"
+        },
+        {
+            "id": "3841ae22-1701-428e-9b3d-6046249d43fa",
+            "name": "visc_med — копия.png",
+            "type": "image/png",
+            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\3841ae22-1701-428e-9b3d-6046249d43fa.png",
+            "extension": "png"
+        },
+        {
+            "id": "0e481cc5-cf2b-41be-a43d-a1e13716de53",
+            "name": "Viscosity.medium_album_x4.jpg",
+            "type": "image/jpeg",
+            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\0e481cc5-cf2b-41be-a43d-a1e13716de53.jpeg",
+            "extension": "jpeg"
+        }
+    ]
+}
