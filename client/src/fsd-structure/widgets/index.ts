@@ -1,10 +1,7 @@
 
 export { CardWrapper } from "./CardWrapper";
 
-// ContentList
-export { ContentStore } from "./ContentStore";
-
-export { FileStoreList } from "./FileStoreList";
+export { StoreFilesList } from "./StoreFilesList";
 
 // DeviceList
 export { DeviceList } from "./DeviceList";
@@ -27,7 +24,7 @@ export {
     MainInformation,
     // informationViewActions,
     // informationViewReducer,
-    useOnFormSave,
+    useOnSaveStoreFiles,
     useFormInputs,
     useFetchStoreFiles,
     useSwitchInformationViewMode,

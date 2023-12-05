@@ -5,10 +5,9 @@ import {CardWrapper, } from "@/fsd-structure/widgets";
 import useSwitchInformationViewMode from "../../model/hooks/useSwitchInformationViewMode.hooks";
 
 import {PlayerData} from "../PlayerData/PlayerData";
-import {FileStoreData} from "../FileStoreData/FileStoreData";
+import {StoreFilesData} from "@/fsd-structure/widgets/InformationView/ui/StoreFilesData/StoreFilesData";
 import {useAppDispatch} from "@/store/store";
-import {useEffect} from "react";
-import { fetchStoreFiles } from "@/fsd-structure/widgets/InformationView/model/informationView.asynkThunk";
+import useFetchStoreFiles from "../../model/hooks/useFetchStoreFiles.hooks";
 import cls from "./informationView.module.scss";
 
 const InformationView = () => {
@@ -19,11 +18,7 @@ const InformationView = () => {
         onSwitchInformationViewMode
     } = useSwitchInformationViewMode();
 
-    const dispatch = useAppDispatch();
-
-    // useEffect(() => {
-    //     dispatch(fetchStoreFiles());
-    // }, []);
+    useFetchStoreFiles();
 
     return (
         <CardWrapper>
@@ -32,7 +27,7 @@ const InformationView = () => {
             >
                 {
                     informationViewMode === "store" ?
-                        <FileStoreData/> :
+                        <StoreFilesData/> :
                         <PlayerData/>
                 }
             </Section>
@@ -42,7 +37,7 @@ const InformationView = () => {
                 className={cls.callStoreButton}
                 type={"button"}
                 onClick={() => {
-                    //onSwitchInformationViewMode();
+                    onSwitchInformationViewMode();
                 }
             }
             >

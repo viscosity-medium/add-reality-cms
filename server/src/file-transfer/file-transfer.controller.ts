@@ -1,3 +1,4 @@
+import {} from "express";
 import {Controller, Get, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {FileTransferService} from './file-transfer.service';
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
@@ -22,14 +23,13 @@ export class FileTransferController {
         const fileMetadata: FileMetadata = JSON.parse(files["metadata"][0].buffer.toString());
 
         const fileChunk = files["fileChunk"][0].buffer;
-        await this.fileTransferService.uploadFileChunk({fileChunk, fileMetadata});
+        const data = await this.fileTransferService.uploadFileChunk({fileChunk, fileMetadata});
 
-        return {"ok": "ok"};
+        return data;
 
     }
 
     @Get("get-store-files")
-    @UseInterceptors()
     async getStoreFiles(){
         return await this.fileTransferService.getStoreFiles()
     }

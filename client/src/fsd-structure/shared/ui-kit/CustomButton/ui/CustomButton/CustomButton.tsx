@@ -9,16 +9,19 @@ const CustomButton: FC<CustomButtonProps> = ({
     className = "",
     customWidth = "defaultWidth",
     styleType = "default",
+    disabled,
     ...otherProps
 }) => {
 
     const widthClass = cls[customWidth];
     const styleTypeClass = cls[styleType];
-    const resultClasses = joinClassnames([cls.button, className, styleTypeClass, widthClass]);
+    const isDisabled = disabled ? cls.isDisabled : ""
+    const resultClasses = joinClassnames([cls.button, className, styleTypeClass, widthClass, isDisabled]);
 
     return (
         <Button
             className={resultClasses}
+            disabled={disabled}
             {...otherProps}
         >
             {

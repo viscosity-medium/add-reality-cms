@@ -5,6 +5,7 @@
     font-size: 18px;
     transition: 0.3s;
     border-radius: 30px;
+    flex-shrink: 0;
 
     &:hover {
         @media (hover: hover) and (pointer: fine) {
@@ -30,6 +31,10 @@
     background: transparent;
 }
 
+.isDisabled {
+    opacity: 0.5;
+}
+
 .smallWidth {
 
 }
@@ -39,7 +44,7 @@
 }
 
 .bigWidth {
-
+    width: 300px;
 }
 
 .fullWidth {

@@ -1,5 +1,28 @@
 .listItem {
+    overflow: hidden;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 4px 0;
+    padding: 0 20px 0 8px;
     width: 100%;
-    height: 24px;
-    border: 1px solid #000000;
+    height: 50px;
+    font-size: 20px;
+    border: 1px solid #5610be;
+    border-radius: 8px;
+
+    &Paragraph {
+        overflow: hidden;
+        width: 86%;
+        color: #5610be;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .image {
+        width: 40px;
+        height: 40px;
+        border-radius: 8px;
+        object-fit: contain;
+    }
 }

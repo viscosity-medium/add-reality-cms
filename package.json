@@ -1,5 +1,10 @@
 {
   "devDependencies": {
+    "@types/fluent-ffmpeg": "^2.1.24",
     "@types/multer": "^1.4.11"
+  },
+  "dependencies": {
+    "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "fluent-ffmpeg": "^2.1.2"
   }
 }

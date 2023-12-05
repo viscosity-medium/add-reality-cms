@@ -1,46 +1,76 @@
 {
     "media": [
         {
-            "id": "a6410cfc-167b-4fb8-8291-d33e91a7e195",
-            "name": "Viscosity.medium_album_x4.jpg",
+            "id": "8e7a1087-1b4a-494c-865c-12f728adf0ea",
+            "name": "background.jpg",
             "type": "image/jpeg",
-            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\a6410cfc-167b-4fb8-8291-d33e91a7e195.jpeg",
-            "extension": "jpeg"
+            "src": "http:\\localhost:3002\\static\\media\\8e7a1087-1b4a-494c-865c-12f728adf0ea.jpeg",
+            "extension": "jpeg",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\8e7a1087-1b4a-494c-865c-12f728adf0ea__preview.jpg"
         },
         {
-            "id": "201769f2-e66b-4561-9ebc-fc223063b62e",
-            "name": "Viscosity.medium_Black-rainbows.jpg",
-            "type": "image/jpeg",
-            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\201769f2-e66b-4561-9ebc-fc223063b62e.jpeg",
-            "extension": "jpeg"
-        },
-        {
-            "id": "56873359-fba4-464c-b320-4d897129e031",
-            "name": "Viscosity-medium_Indians_Pt-_I.mp4",
-            "type": "video/mp4",
-            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\56873359-fba4-464c-b320-4d897129e031.mp4",
-            "extension": "mp4"
-        },
-        {
-            "id": "0b5d4aa6-902e-4114-aa9c-c40cb33d4c4e",
+            "id": "035410c9-abe3-42d1-bac4-eaafc9c731cd",
             "name": "Viscosity-medium_Black-Rainbows.mp4",
             "type": "video/mp4",
-            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\0b5d4aa6-902e-4114-aa9c-c40cb33d4c4e.mp4",
-            "extension": "mp4"
+            "src": "http:\\localhost:3002\\static\\media\\035410c9-abe3-42d1-bac4-eaafc9c731cd.mp4",
+            "extension": "mp4",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\035410c9-abe3-42d1-bac4-eaafc9c731cd__preview.jpg"
         },
         {
-            "id": "3841ae22-1701-428e-9b3d-6046249d43fa",
-            "name": "visc_med — копия.png",
+            "id": "db891146-285d-4c62-8db9-481d8584297e",
+            "name": "Viscosity-medium_D1.mp4",
+            "type": "video/mp4",
+            "src": "http:\\localhost:3002\\static\\media\\db891146-285d-4c62-8db9-481d8584297e.mp4",
+            "extension": "mp4",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\db891146-285d-4c62-8db9-481d8584297e__preview.jpg"
+        },
+        {
+            "id": "40835f05-e0ee-4a85-afda-140eee40b3bd",
+            "name": "Viscosity-medium_Indians_Pt-_I.mp4",
+            "type": "video/mp4",
+            "src": "http:\\localhost:3002\\static\\media\\40835f05-e0ee-4a85-afda-140eee40b3bd.mp4",
+            "extension": "mp4",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\40835f05-e0ee-4a85-afda-140eee40b3bd__preview.jpg"
+        },
+        {
+            "id": "3d90ea11-8514-46ed-a43d-fa5781e628f0",
+            "name": "Viscosity-medium_X-ray_1.mp4",
+            "type": "video/mp4",
+            "src": "http:\\localhost:3002\\static\\media\\3d90ea11-8514-46ed-a43d-fa5781e628f0.mp4",
+            "extension": "mp4",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\3d90ea11-8514-46ed-a43d-fa5781e628f0__preview.jpg"
+        },
+        {
+            "id": "6e53bad2-6856-4484-a3bd-2b8499bb524b",
+            "name": "Viscosity-medium_Zurich.mp4",
+            "type": "video/mp4",
+            "src": "http:\\localhost:3002\\static\\media\\6e53bad2-6856-4484-a3bd-2b8499bb524b.mp4",
+            "extension": "mp4",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\6e53bad2-6856-4484-a3bd-2b8499bb524b__preview.jpg"
+        },
+        {
+            "id": "c02158db-316d-4cbd-a85f-d20066bc190a",
+            "name": "Viscosity.medium_album_.png",
             "type": "image/png",
-            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\3841ae22-1701-428e-9b3d-6046249d43fa.png",
-            "extension": "png"
+            "src": "http:\\localhost:3002\\static\\media\\c02158db-316d-4cbd-a85f-d20066bc190a.png",
+            "extension": "png",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\c02158db-316d-4cbd-a85f-d20066bc190a__preview.jpg"
         },
         {
-            "id": "0e481cc5-cf2b-41be-a43d-a1e13716de53",
-            "name": "Viscosity.medium_album_x4.jpg",
+            "id": "1df3df6d-1338-4431-8876-b0ca0e460f13",
+            "name": "Viscosity.medium_Black-rainbows_ml_resize_x2.png",
+            "type": "image/png",
+            "src": "http:\\localhost:3002\\static\\media\\1df3df6d-1338-4431-8876-b0ca0e460f13.png",
+            "extension": "png",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\1df3df6d-1338-4431-8876-b0ca0e460f13__preview.jpg"
+        },
+        {
+            "id": "88ac5e04-3edf-4ae6-8e63-7cd15d669bda",
+            "name": "Viscosity.medium_Indians_Pt._I.jpg",
             "type": "image/jpeg",
-            "src": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\0e481cc5-cf2b-41be-a43d-a1e13716de53.jpeg",
-            "extension": "jpeg"
+            "src": "http:\\localhost:3002\\static\\media\\88ac5e04-3edf-4ae6-8e63-7cd15d669bda.jpeg",
+            "extension": "jpeg",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\88ac5e04-3edf-4ae6-8e63-7cd15d669bda__preview.jpg"
         }
     ]
 }

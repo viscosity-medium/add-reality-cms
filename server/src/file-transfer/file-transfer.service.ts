@@ -22,9 +22,10 @@ export class FileTransferService {
             this.fileSystemService.appendFileSync(filePath, fileChunk);
 
             if(fileMetadata.currentChunkIndex === fileMetadata.totalChunksAmount){
-
-                await this.jsonDatabaseService.writeDataToDatabase(fileMetadata, filePath)
-
+                return await this.jsonDatabaseService.writeDataToDatabase(fileMetadata, fileName)
+            }
+            return {
+                message: "Files are still being uploaded"
             }
 
         } catch (error) {
@@ -37,7 +38,7 @@ export class FileTransferService {
     }
 
     async getStoreFiles(){
-        await this.jsonDatabaseService.readDataFromDatabase();
+        return await this.jsonDatabaseService.readDataFromDatabase();
     }
 
 }

@@ -1,3 +1,5 @@
+import {StoreFileProps} from "@/fsd-structure/widgets/StoreFilesList/model/storeFilesList.slice";
+
 export type Mode = "store" | "player"
 export interface PlayerData {
     id: string
@@ -8,5 +10,5 @@ export interface PlayerData {
 export interface InformationViewScheme {
     mode: Mode
     playerData: PlayerData
-    filesStore: any[]
+    storeFiles: StoreFileProps[]
 }

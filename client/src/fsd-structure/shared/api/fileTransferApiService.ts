@@ -1,5 +1,6 @@
 import {AxiosApi} from "./axiosInstance";
 import {UploadFileByChunks} from "./types/fileTransferApiService";
+import {StoreFileProps} from "@/fsd-structure/widgets/StoreFilesList/model/storeFilesList.slice";
 
 class FileTransferApiService extends AxiosApi {
 
@@ -11,7 +12,7 @@ class FileTransferApiService extends AxiosApi {
             formData.append("metadata", stringedMataData);
 
             try {
-                await this.axiosFormDataInstance.post(
+                return await this.axiosFormDataInstance.post<StoreFileProps[]>(
                     `/files-transfer/upload-file-chunk`,
                     formData
                 );
@@ -26,9 +27,9 @@ class FileTransferApiService extends AxiosApi {
     async getStoreFiles(){
 
         try {
-            // await this.axiosJsonInstance.get(
-            //     `/files-transfer/get-store-files`,
-            // );
+            return await this.axiosJsonInstance.get(
+                `/files-transfer/get-store-files`,
+            );
         }
         catch(err){
             console.log(err)

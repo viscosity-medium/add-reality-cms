@@ -4,6 +4,7 @@ import {ConfigModule} from "@nestjs/config";
 import {FileSystemModule} from './file-system/file-system.module';
 import { FileTransferModule } from './file-transfer/file-transfer.module';
 import { JsonDatabaseModule } from './json-database/json-database.module';
+import { MediaModule } from './media/media.module';
 import * as process from "process";
 
 @Module({
@@ -13,7 +14,8 @@ import * as process from "process";
         }),
         FileSystemModule,
         FileTransferModule,
-        JsonDatabaseModule
+        JsonDatabaseModule,
+        MediaModule
     ],
     providers: [AppService],
 })

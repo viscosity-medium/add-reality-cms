@@ -2,11 +2,9 @@
 
 import cls from "@/fsd-structure/widgets/InformationView/ui/InformationView/informationView.module.scss";
 import {CustomButton, CustomHeader, defineMargins, Div, Form, Hr} from "@/fsd-structure/shared";
-import {MainInformation, useOnFormSave} from "@/fsd-structure/widgets";
+import {MainInformation, useOnSaveStoreFiles} from "@/fsd-structure/widgets";
 
 const PlayerData = () => {
-
-    const { onSaveFormButtonClick } = useOnFormSave();
 
     return (
         <Form
@@ -33,21 +31,19 @@ const PlayerData = () => {
             >
                 Контент в расписании
             </CustomHeader>
-            <Div
-                className={cls.submitFormButtonWrapper}
-            >
-                <CustomButton
-                    className={cls.submitFormButton}
-                    onClick={()=>{
-                        onSaveFormButtonClick();
-                    }}
-                    customWidth={"defaultWidth"}
-                    styleType={"colored"}
-                    type={"submit"}
-                >
-                    Отправить
-                </CustomButton>
-            </Div>
+            {/*<Div*/}
+            {/*    className={cls.submitFormButtonWrapper}*/}
+            {/*>*/}
+            {/*    <CustomButton*/}
+            {/*        className={cls.submitFormButton}*/}
+            {/*        */}
+            {/*        customWidth={"defaultWidth"}*/}
+            {/*        styleType={"colored"}*/}
+            {/*        type={"submit"}*/}
+            {/*    >*/}
+            {/*        Отправить*/}
+            {/*    </CustomButton>*/}
+            {/*</Div>*/}
         </Form>
     );
 

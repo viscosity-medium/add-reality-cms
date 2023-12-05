@@ -2,7 +2,7 @@
 
 import {useAppDispatch} from "@/store/store";
 import {useEffect} from "react";
-import { fetchStoreFiles } from "../informationView.asynkThunk";
+import { fetchStoreFiles } from "../asyncThunks/informationView.asynkThunk";
 
 const useFetchStoreFiles = () => {
 
