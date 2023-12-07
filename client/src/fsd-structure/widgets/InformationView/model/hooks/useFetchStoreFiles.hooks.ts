@@ -2,7 +2,7 @@
 
 import {useAppDispatch} from "@/store/store";
 import {useEffect} from "react";
-import { fetchStoreFiles } from "../asyncThunks/informationView.asynkThunk";
+import { fetchDatabaseData } from "../asyncThunks/informationView.asynkThunk";
 
 const useFetchStoreFiles = () => {
 
@@ -10,7 +10,7 @@ const useFetchStoreFiles = () => {
 
     useEffect(() => {
         (async () => {
-            await dispatch(fetchStoreFiles());
+            await dispatch(fetchDatabaseData());
         })()
     }, []);
 

@@ -1,3 +1,3 @@
-import {StateScheme} from "@/store/store";
+import {StateScheme} from "@/store/stateScheme";
 
 export const getFileStoreItems = (state: StateScheme) => state.fileStore.items;

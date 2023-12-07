@@ -2,6 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+/*@layer base {*/
+/*    button, [type='button'], [type='reset'], [type='submit'] {*/
+/*        -webkit-appearance: unset;*/
+/*        background-color: unset;*/
+/*        background-image: unset;*/
+/*    }*/
+/*}*/
+
 :root {
 
 }
@@ -13,11 +21,30 @@
 }
 
 body {
+    /*-webkit-user-select: text;*/
+    /*-moz-user-select: text;*/
+    /*-ms-user-select: text;*/
 
+    /*&::-webkit-selection {*/
+    /*    color: red;*/
+    /*    background-color: yellow;*/
+    /*}*/
+
+    /*&::-moz-selection {*/
+    /*    color: red;*/
+    /*    background-color: yellow;*/
+    /*}*/
+
+    /*&::selection {*/
+    /*    color: red;*/
+    /*    background-color: yellow;*/
+    /*}*/
 }
 
 
+
 * {
+
     &::-webkit-scrollbar {
         width: 12px;
         box-shadow: 0 0 6px rgba(0, 0, 0, 0.2);
@@ -35,4 +62,5 @@ body {
         border-radius: 12px;
         background: linear-gradient(180deg, rgba(188, 52, 226, 0.5) 3.26%, rgba(122, 39, 241, 0.5) 98.07%);
     }
+
 }

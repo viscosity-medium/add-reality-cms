@@ -15,15 +15,15 @@ const useFormInputs = () => {
 
     const onIdInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
-        dispatch(informationViewActions.setId(inputValue));
+        dispatch(informationViewActions.setCurrentPlayerId(inputValue));
     }
     const onNameInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
-        dispatch(informationViewActions.setFilename(inputValue));
+        dispatch(informationViewActions.setCurrentPlayerName(inputValue));
     }
     const onXmlInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         const inputValue = event.target.value;
-        dispatch(informationViewActions.setXml(inputValue));
+        dispatch(informationViewActions.setCurrentXmlId(inputValue));
     }
 
     return {

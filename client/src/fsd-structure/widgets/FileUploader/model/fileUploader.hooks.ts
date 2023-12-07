@@ -24,10 +24,10 @@ export const useSelectedFilesChange = (ref: RefObject<HTMLInputElement>) => {
             onSelectedFilesChange(filesArray);
         }
     }
-    const onDeleteButtonClick = (fileIndex: number) => {
+    const onDeleteButtonClick = (filterIndex: number) => {
         const selectedFilesCopy = [...selectedFiles].filter((_, index) => {
             return (
-                index !== fileIndex
+                index !== filterIndex
             )
         });
         dispatch(fileUploaderActions.setSelectedFiles(selectedFilesCopy));

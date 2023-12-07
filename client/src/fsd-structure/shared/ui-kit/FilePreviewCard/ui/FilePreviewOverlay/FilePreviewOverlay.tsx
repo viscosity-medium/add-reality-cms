@@ -1,6 +1,6 @@
 'use client'
 
-import {Button, Div, Hr, joinClassnames, Paragraph} from "@/fsd-structure/shared";
+import {CloseButton, Div, Paragraph} from "@/fsd-structure/shared";
 import {useSelectedFilesChange} from "@/fsd-structure/widgets/FileUploader/model/fileUploader.hooks";
 import {FC, RefObject} from "react";
 import cls from "../FilePreviewCard/filePreviewCard.module.scss";
@@ -24,15 +24,12 @@ const FilePreviewOverlay: FC<FilePreviewItemProps> = ({
         <Div
             className={cls.infoOverlay}
         >
-            <Button
-                className={cls.deleteButton}
+            <CloseButton
                 onClick={() => {
                     onDeleteButtonClick(fileIndex);
                 }}
-            >
-                <Hr className={joinClassnames([cls.h, cls.hr1])}/>
-                <Hr className={joinClassnames([cls.h, cls.hr2])}/>
-            </Button>
+                className={cls.deleteButton}
+            />
             <Div className={cls.filenameWrapper}>
                 <Paragraph>
                     {

@@ -1,6 +1,3 @@
-
-export { CardWrapper } from "./CardWrapper";
-
 export { StoreFilesList } from "./StoreFilesList";
 
 // DeviceList
@@ -15,18 +12,24 @@ export {
     type FileUploaderScheme
 } from "./FileUploader";
 
-// Layout
-export { Layout } from "./Layout";
-
 // InformationView
 export {
     InformationView,
     MainInformation,
     // informationViewActions,
     // informationViewReducer,
-    useOnSaveStoreFiles,
+    useUploadNewStoreFiles,
     useFormInputs,
     useFetchStoreFiles,
     useSwitchInformationViewMode,
     type InformationViewScheme
 } from "./InformationView"
+
+// Layout
+export { Layout } from "./Layout";
+
+// Modal
+export { Modal } from "./Modal"
+
+
+export { NewPlayerCard } from "./NewPlayerCard";

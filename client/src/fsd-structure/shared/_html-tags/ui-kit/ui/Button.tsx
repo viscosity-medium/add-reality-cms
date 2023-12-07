@@ -2,9 +2,7 @@
 
 import {ButtonHTMLAttributes, DetailedHTMLProps, FC} from "react";
 
-export interface ButtonProps extends  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {
-
-}
+export interface ButtonProps extends  DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement> {}
 
 const Button: FC<ButtonProps> = ({
     children,

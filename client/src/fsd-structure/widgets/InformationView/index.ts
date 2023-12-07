@@ -1,7 +1,7 @@
 
 import InformationView from "@/fsd-structure/widgets/InformationView/ui/InformationView/InformationView";
 import MainInformation from "@/fsd-structure/widgets/InformationView/ui/MainInformation/MainInformation";
-import useOnSaveStoreFiles from "./model/hooks/useOnFormSave.hooks";
+import useUploadNewStoreFiles from "./model/hooks/useUploadStoreFiles.hooks";
 import useSwitchInformationViewMode from "./model/hooks/useSwitchInformationViewMode.hooks";
 import useFormInputs from "./model/hooks/useFormInputs.hooks";
 import useFetchStoreFiles from "./model/hooks/useFetchStoreFiles.hooks"
@@ -12,7 +12,7 @@ export { type InformationViewScheme } from "./types/InformationView.d";
 export {
     InformationView,
     MainInformation,
-    useOnSaveStoreFiles,
+    useUploadNewStoreFiles,
     useFormInputs,
     useFetchStoreFiles,
     useSwitchInformationViewMode

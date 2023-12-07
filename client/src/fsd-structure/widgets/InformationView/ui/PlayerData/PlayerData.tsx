@@ -1,8 +1,8 @@
 'use client'
 
 import cls from "@/fsd-structure/widgets/InformationView/ui/InformationView/informationView.module.scss";
-import {CustomButton, CustomHeader, defineMargins, Div, Form, Hr} from "@/fsd-structure/shared";
-import {MainInformation, useOnSaveStoreFiles} from "@/fsd-structure/widgets";
+import {CustomHeader, defineMargins, Form, Hr} from "@/fsd-structure/shared";
+import {MainInformation} from "@/fsd-structure/widgets";
 
 const PlayerData = () => {
 

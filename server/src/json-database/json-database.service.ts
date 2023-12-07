@@ -4,6 +4,7 @@ import {FileMetadata} from "../file-transfer/dto/file-transfer.dto";
 import {join} from "path";
 import * as process from "process";
 import {MediaService} from "../media/media.service";
+import {JsonDatabase, PlayerData, StoreFiles} from "./dto/json-database.dto";
 
 @Injectable()
 export class JsonDatabaseService {
@@ -13,11 +14,23 @@ export class JsonDatabaseService {
        private mediaService: MediaService
     ) {}
 
-    async writeDataToDatabase(fileMetadata: FileMetadata, fileName: string){
+    async updateDatabase(storeFiles: StoreFiles[]){
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
+
+        const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
+        const databaseData = JSON.parse(databaseBuffer.toString());
+        const newData = { ...databaseData, media: storeFiles };
+        const stringData = JSON.stringify(newData, null, 4);
+
+        this.fileSystemService.writeFileSync(dbPath, stringData);
+        return storeFiles
+    }
+
+    async writeUploadedFileToDataToDatabase(fileMetadata: FileMetadata, fileName: string){
 
         const { id, name, type, extension } = fileMetadata;
         const src = join(process.env.NEST_SERVER_HOST, "static", "media", fileName);
-        const dbPath = this.fileSystemService.joinPath([process.cwd(), "bd", "database.json"]);
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
         const previewFileName = `${fileMetadata.id}__preview.jpg`;
         const previewSrc = join(process.env.NEST_SERVER_HOST, "static", "media", previewFileName);
         const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
@@ -31,9 +44,9 @@ export class JsonDatabaseService {
             await this.mediaService.getVideoPreview(fileInput, fileOutput, "600x600")
         }
 
-        databaseData.media.push({ id, name, type, src, extension, previewSrc })
+        databaseData.media.push({ id, name, type, src, extension, previewSrc });
 
-        const sortedDatabase = databaseData.media.sort((a, b) => {
+        const sortedMediaData = databaseData.media.sort((a, b) => {
             if(a.name.toLowerCase() > b.name.toLowerCase()) {
                 return 1;
             } else if (a.name.toLowerCase() < b.name.toLowerCase()) {
@@ -43,16 +56,30 @@ export class JsonDatabaseService {
             }
         });
 
-        const stringData = JSON.stringify({media: sortedDatabase}, null, 4);
+        const newData = { ...databaseData, media: sortedMediaData };
+        const stringData = JSON.stringify(newData, null, 4);
 
         this.fileSystemService.writeFileSync(dbPath, stringData);
-        console.log(sortedDatabase)
-        return sortedDatabase;
+
+        return sortedMediaData;
     }
 
     async readDataFromDatabase(){
-        const dbPath = this.fileSystemService.joinPath([process.cwd(), "bd", "database.json"]);
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
         const fileData = JSON.parse(this.fileSystemService.readFileSync(dbPath).toString());
+        return fileData;
+    }
+
+    async registerNewPlayer(playerData: PlayerData){
+
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
+        const fileData: JsonDatabase = JSON.parse(this.fileSystemService.readFileSync(dbPath).toString());
+
+        fileData.players.push(playerData);
+
+        const stringData = JSON.stringify(fileData, null, 4);
+        this.fileSystemService.writeFileSync(dbPath, stringData);
+
         return fileData;
     }
 

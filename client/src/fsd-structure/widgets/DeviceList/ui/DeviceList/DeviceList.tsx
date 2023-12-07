@@ -4,9 +4,15 @@ import {Aside, CustomButton, CustomHeader, defineMargins, Div, Ul} from "@/fsd-s
 import {deviceListTestData} from "../../model/deviceList.testData";
 import {DeviceListItem} from "../DeviceListItem/DeviceListItem";
 import cls from "./deviceList.module.scss";
+import {useSelector} from "react-redux";
+import {getPlayersList} from "@/fsd-structure/widgets/InformationView/model/informationView.selectors";
+import {useChangeModalVisibility} from "@/fsd-structure/widgets/Modal/model/modal.hooks";
 
 const DeviceList = () => {
 
+    const playersList = useSelector(getPlayersList);
+    const { setModalVisible } = useChangeModalVisibility();
+    console.log(playersList)
     return (
         <Aside
             className={cls.aside}
@@ -27,17 +33,18 @@ const DeviceList = () => {
                         className={cls.deviceList}
                     >
                         {
-                            deviceListTestData.map(({
+                            playersList.length > 0 && playersList.map(({
                                 id,
                                 name,
-                                xmlResource
+                                xml
                             }, index) => {
                                 return(
                                     <DeviceListItem
                                         key={`${id}-${name}-${index}`}
                                         id={id}
                                         name={name}
-                                        xmlResource={xmlResource}
+                                        xml={xml}
+                                        index={index}
                                     />
                                 )
                             })
@@ -50,6 +57,9 @@ const DeviceList = () => {
                     className={defineMargins({
                         marginTop: "mt16"
                     })}
+                    onClick={() => {
+                        setModalVisible();
+                    }}
                 >
                     Зарегистрировать плеер
                 </CustomButton>

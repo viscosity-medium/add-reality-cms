@@ -1,15 +1,25 @@
 'use client';
 
 import {CustomButton, CustomHeader, defineMargins, Div, Hr} from "@/fsd-structure/shared";
-import {FileUploader, getSelectedFiles, StoreFilesList, useOnSaveStoreFiles} from "@/fsd-structure/widgets";
+import {FileUploader, getSelectedFiles, StoreFilesList} from "@/fsd-structure/widgets";
 import {useAppSelector} from "@/store/store";
 import cls from "./storeFilesData.module.scss";
+import {
+    getStoreFiles,
+    getStoreFilesBuffer
+} from "@/fsd-structure/widgets/InformationView/model/informationView.selectors";
+import useUploadStoreFilesHooks from "@/fsd-structure/widgets/InformationView/model/hooks/useUploadStoreFiles.hooks";
+import useUpdateStoreFilesHooks from "@/fsd-structure/widgets/InformationView/model/hooks/useUpdateStoreFiles.hooks";
 
 const StoreFilesData = () => {
 
     const selectedFiles = useAppSelector(getSelectedFiles);
+    const storeFiles = useAppSelector(getStoreFiles);
+    const storeFilesBuffer = useAppSelector(getStoreFilesBuffer);
     const isButtonDisabled = selectedFiles.length === 0;
-    const { onSaveStoreFiles } = useOnSaveStoreFiles();
+    const areStoreFilesChanged = storeFiles !== storeFilesBuffer;
+    const { onUploadNewStoreFiles } = useUploadStoreFilesHooks();
+    const { onUpdateStoreFiles } = useUpdateStoreFilesHooks();
 
     return (
         <Div
@@ -34,24 +44,39 @@ const StoreFilesData = () => {
                 >
                     <StoreFilesList/>
                 </Div>
-                <Hr/>
+                <Hr
+                    className={cls.hr}
+                />
                 <Div
                     className={cls.filesUploader}
                 >
                     <FileUploader/>
                 </Div>
             </Div>
-            <CustomButton
-                customWidth={"bigWidth"}
-                styleType={"colored"}
-                className={cls.submitButton}
-                disabled={isButtonDisabled}
-                onClick={()=>{
-                    onSaveStoreFiles();
-                }}
-            >
-                {isButtonDisabled ? "Добавьте": "Загрузить"} новые файлы
-            </CustomButton>
+            <Div className={cls.buttonsGroup}>
+                <CustomButton
+                    customWidth={"bigWidth"}
+                    styleType={"colored"}
+                    className={cls.submitButton}
+                    disabled={!areStoreFilesChanged || storeFiles.length === 0}
+                    onClick={()=>{
+                        onUpdateStoreFiles()
+                    }}
+                >
+                    {!areStoreFilesChanged || storeFiles.length === 0 ? "Обновление не требуется": "Обновить файлы"}
+                </CustomButton>
+                <CustomButton
+                    customWidth={"bigWidth"}
+                    styleType={"colored"}
+                    className={cls.submitButton}
+                    disabled={isButtonDisabled}
+                    onClick={()=>{
+                        onUploadNewStoreFiles();
+                    }}
+                >
+                    {isButtonDisabled ? "Добавьте": "Загрузить"} новые файлы
+                </CustomButton>
+            </Div>
         </Div>
     );
 };

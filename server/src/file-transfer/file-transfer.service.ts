@@ -4,6 +4,7 @@ import {JsonDatabaseService} from "../json-database/json-database.service";
 import {FileMetadata} from "./dto/file-transfer.dto";
 import {join} from "path";
 import * as process from "process";
+import {PlayerData, StoreFiles} from "../json-database/dto/json-database.dto";
 
 @Injectable()
 export class FileTransferService {
@@ -22,7 +23,7 @@ export class FileTransferService {
             this.fileSystemService.appendFileSync(filePath, fileChunk);
 
             if(fileMetadata.currentChunkIndex === fileMetadata.totalChunksAmount){
-                return await this.jsonDatabaseService.writeDataToDatabase(fileMetadata, fileName)
+                return await this.jsonDatabaseService.writeUploadedFileToDataToDatabase(fileMetadata, fileName)
             }
             return {
                 message: "Files are still being uploaded"
@@ -37,8 +38,17 @@ export class FileTransferService {
 
     }
 
-    async getStoreFiles(){
+    async getDatabaseData(){
         return await this.jsonDatabaseService.readDataFromDatabase();
     }
+
+    async updateStoreFiles(storeFiles: StoreFiles[]){
+        return await this.jsonDatabaseService.updateDatabase(storeFiles)
+    }
+
+    async registerNewPlayer(playerData: PlayerData){
+        return await this.jsonDatabaseService.registerNewPlayer(playerData);
+    }
+
 
 }

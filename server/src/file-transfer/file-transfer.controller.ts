@@ -1,8 +1,9 @@
 import {} from "express";
-import {Controller, Get, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
+import {Body, Controller, Get, Patch, Post, UploadedFiles, UseInterceptors} from '@nestjs/common';
 import {FileTransferService} from './file-transfer.service';
 import {FileFieldsInterceptor} from "@nestjs/platform-express";
 import {FileMetadata} from "./dto/file-transfer.dto";
+import {PlayerData, StoreFiles} from "../json-database/dto/json-database.dto";
 
 @Controller('files-transfer')
 export class FileTransferController {
@@ -29,9 +30,19 @@ export class FileTransferController {
 
     }
 
-    @Get("get-store-files")
+    @Get("get-database-data")
     async getStoreFiles(){
-        return await this.fileTransferService.getStoreFiles()
+        return await this.fileTransferService.getDatabaseData()
+    }
+
+    @Patch("update-store-files")
+    async updateStoreFiles(@Body() storeFiles: StoreFiles[]) {
+        return await this.fileTransferService.updateStoreFiles(storeFiles);
+    }
+
+    @Patch("register-new-player")
+    async registerNewPlayer(@Body() playerData: PlayerData) {
+        return await this.fileTransferService.registerNewPlayer(playerData);
     }
 
 }

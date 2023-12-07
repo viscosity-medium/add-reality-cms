@@ -1,7 +1,6 @@
 'use client'
 
-import {CustomButton, Paragraph, Section} from "@/fsd-structure/shared";
-import {CardWrapper, } from "@/fsd-structure/widgets";
+import {CardWrapper, CustomButton, Paragraph, Section} from "@/fsd-structure/shared";
 import useSwitchInformationViewMode from "../../model/hooks/useSwitchInformationViewMode.hooks";
 
 import {PlayerData} from "../PlayerData/PlayerData";
@@ -35,7 +34,6 @@ const InformationView = () => {
                 customWidth={"defaultWidth"}
                 styleType={"default"}
                 className={cls.callStoreButton}
-                type={"button"}
                 onClick={() => {
                     onSwitchInformationViewMode();
                 }

@@ -8,6 +8,7 @@
 .informationWrapper {
     overflow: hidden;
     display: flex;
+    flex-grow: 1;
     margin: 12px 0;
     width: 100%;
 
@@ -16,9 +17,23 @@
         width: 50%;
     }
 
+    .hr {
+        width: 2px;
+        height: 100%;
+        margin: 2px 8px 2px 8px;
+        background-color: #e5e5e5;
+        border-radius: 2px;
+    }
+
     .filesUploader{
         width: 50%;
     }
+}
+
+.buttonsGroup {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
 }
 
 .submitButton {

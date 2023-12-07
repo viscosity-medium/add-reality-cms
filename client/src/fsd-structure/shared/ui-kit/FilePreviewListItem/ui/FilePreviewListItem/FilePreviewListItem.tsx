@@ -1,13 +1,16 @@
 'use client'
 
 import {FC} from "react";
-import {Li, Paragraph} from "@/fsd-structure/shared";
+import {CloseButton, Li, Paragraph} from "@/fsd-structure/shared";
 import cls from "./filePreviewListItem.module.scss";
 import {StoreFileProps} from "@/fsd-structure/widgets/StoreFilesList/model/storeFilesList.slice";
 import Image from "next/image";
+import {
+    useOnDeleteButtonClick
+} from "../../hooks/useOnDeleteButtonClick.hooks";
 
 interface FilePreviewListItemProps extends StoreFileProps {
-    index?: number
+    index: number
 }
 
 const FilePreviewListItem: FC<FilePreviewListItemProps> = ({
@@ -21,6 +24,7 @@ const FilePreviewListItem: FC<FilePreviewListItemProps> = ({
 }) => {
 
     const size = 40;
+    const {onDeleteButtonClick} = useOnDeleteButtonClick(index);
 
     return(
         <Li
@@ -30,7 +34,7 @@ const FilePreviewListItem: FC<FilePreviewListItemProps> = ({
                 className={cls.listItemParagraph}
             >
                 {
-                    index
+                    index + 1
                 }) {
                     name
                 }
@@ -46,6 +50,12 @@ const FilePreviewListItem: FC<FilePreviewListItemProps> = ({
                     />
                 )
             }
+            <CloseButton
+                className={cls.deleteButton}
+                onClick={() => {
+                    onDeleteButtonClick()
+                }}
+            />
         </Li>
     );
 

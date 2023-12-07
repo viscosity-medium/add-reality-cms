@@ -1,70 +1,58 @@
 'use client'
 
-import {Div, Input, Label} from "@/fsd-structure/shared";
-import cls from "./contentBlock.module.scss";
+import {CustomInput, CustomLabel, Li, TextFilledLine, Ul} from "@/fsd-structure/shared";
 import {useFormInputs} from "@/fsd-structure/widgets";
+import cls from "./contentBlock.module.scss";
 
 const MainInformation = () => {
 
     const {
         deviceId, deviceName, xmlFile,
-        onIdInputChange, onNameInputChange,
-        onXmlInputChange
+        onNameInputChange,
     } = useFormInputs();
 
     return (
-        <Div
+        <Ul
             className={cls.mainInformation}
         >
-            <Div
+            <Li
                 className={cls.mainInformationRow}
             >
-                <Label
-                    className={cls.mainInformationRowlabel}
-                >
-                    Id:
-                </Label>
-                <Input
-                    value={deviceId}
-                    onChange={(event) => {
-                        onIdInputChange(event);
-                    }}
-                    className={cls.mainInformationRowDescription}
-                />
-            </Div>
-            <Div
-                className={cls.mainInformationRow}
-            >
-                <Label
-                    className={cls.mainInformationRowlabel}
-                >
+                <CustomLabel>
                     Название:
-                </Label>
-                <Input
+                </CustomLabel>
+                <CustomInput
                     value={deviceName}
                     onChange={(event) => {
                         onNameInputChange(event);
                     }}
-                    className={cls.mainInformationRowDescription}
                 />
-            </Div>
-            <Div
+            </Li>
+            <Li
                 className={cls.mainInformationRow}
             >
-                <Label
-                    className={cls.mainInformationRowlabel}
-                >
-                    XML:
-                </Label>
-                <Input
-                    value={xmlFile}
-                    onChange={(event) => {
-                        onXmlInputChange(event);
-                    }}
-                    className={cls.mainInformationRowDescription}
-                />
-            </Div>
-        </Div>
+                <CustomLabel>
+                    Id устройства:
+                </CustomLabel>
+                <TextFilledLine>
+                    {
+                        deviceId
+                    }
+                </TextFilledLine>
+            </Li>
+            <Li
+                className={cls.mainInformationRow}
+            >
+                <CustomLabel>
+                    Id xml-файла:
+                </CustomLabel>
+                <TextFilledLine>
+                    {
+                        xmlFile
+                    }
+                </TextFilledLine>
+            </Li>
+        </Ul>
     );
 
 };

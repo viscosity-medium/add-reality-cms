@@ -1,6 +1,6 @@
 import {DetailedHTMLProps, FC, HTMLAttributes} from "react";
 
-interface ParagraphProps extends  DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {}
+export interface ParagraphProps extends  DetailedHTMLProps<HTMLAttributes<HTMLParagraphElement>, HTMLParagraphElement> {}
 
 const Paragraph: FC<ParagraphProps> = ({
     children,

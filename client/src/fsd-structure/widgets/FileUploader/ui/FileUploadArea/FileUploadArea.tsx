@@ -17,7 +17,6 @@ const FileUploadArea: FC<FileUploadAreaProps> = ({
     return (
         <>
             <Button
-                type={"button"}
                 onClick={() => {
                     inputFileRef.current?.click();
                 }}

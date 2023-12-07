@@ -1,8 +1,8 @@
 import {DetailedHTMLProps, FC, LabelHTMLAttributes} from "react";
 
-interface UlProps extends DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> {}
+export interface LabelProps extends DetailedHTMLProps<LabelHTMLAttributes<HTMLLabelElement>, HTMLLabelElement> {}
 
-const Label: FC<UlProps> = ({
+const Label: FC<LabelProps> = ({
     children,
     className,
     ...otherProps

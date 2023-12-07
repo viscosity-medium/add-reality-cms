@@ -5,6 +5,7 @@ import '../../../../../app/globals.css'
 import { Body, HTML, joinClassnames, Main } from "@/fsd-structure/shared";
 import cls from "./layout.module.scss";
 import {ProvidersWrapper} from "@/config/providers/ProvidersWrapper";
+import {Modal} from "@/fsd-structure/widgets";
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -33,6 +34,7 @@ export default function RootLayout({
                             children
                         }
                     </Main>
+                    <Modal/>
                 </Body>
             </HTML>
         </ProvidersWrapper>

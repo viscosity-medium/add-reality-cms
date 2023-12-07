@@ -1,0 +1,53 @@
+.deleteButton {
+    position: relative;
+    z-index: 1;
+    align-self: flex-end;
+    margin: 4px;
+    border-radius: 10px;
+    background-color: #ffffff;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.3s;
+
+    &:hover {
+        @media (hover: hover) and (pointer: fine) {
+            transform: scale(1.1);
+            box-shadow: 0 0 8px rgba(243, 225, 225, 0.8);
+        }
+    }
+
+    .h {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 80%;
+        height: 1px;
+        border: none;
+        border-radius: 2px;
+        background-color: #e50431;
+    }
+    // #e50431
+    // #f92751
+
+    .hr1 {
+        transform: translate(-50%, -50%) rotate(-45deg);
+    }
+    .hr2 {
+        transform: translate(-50%, -50%) rotate(45deg);
+    }
+}
+
+.small {
+    width: 20px;
+    height: 20px;
+}
+
+.normal {
+    width: 50px;
+    height: 50px;
+}
+
+.big {
+    width: 80px;
+    height: 80px;
+}

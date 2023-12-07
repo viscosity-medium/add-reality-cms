@@ -1,8 +1,9 @@
 
 export interface DeviceListDataItem {
-    id: number | string,
+    id: string,
     name: string
-    xmlResource: string
+    xml: string
+    index?: number
 }
 
 export type DeviceListData = DeviceListDataItem[];

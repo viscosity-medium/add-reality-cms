@@ -1,0 +1,34 @@
+{
+    "media": [
+        {
+            "id": "44dcbf6f-3dc5-4c08-94ff-422be5811d7a",
+            "name": "visc_med — копия.png",
+            "type": "image/png",
+            "src": "http:\\localhost:3002\\static\\media\\44dcbf6f-3dc5-4c08-94ff-422be5811d7a.png",
+            "extension": "png",
+            "previewSrc": "http:\\localhost:3002\\static\\media\\44dcbf6f-3dc5-4c08-94ff-422be5811d7a__preview.jpg"
+        }
+    ],
+    "players": [
+        {
+            "id": "71414099-9c03-4fd6-a9ee-be41cf5d2626",
+            "name": "Новый магазин",
+            "xml": "00001.xml"
+        },
+        {
+            "id": "a7b462e5-16c1-431a-8899-73a678e237e6",
+            "name": "eorefnerofref",
+            "xml": "00002.xml"
+        },
+        {
+            "id": "734524de-6349-4ae2-8522-54b1192d68eb",
+            "name": "YUJDGNS",
+            "xml": "00003.xml"
+        },
+        {
+            "id": "528c1b79-38ce-4074-9945-e6d88874ed37",
+            "name": "fujsofjsoed",
+            "xml": "00004.xml"
+        }
+    ]
+}

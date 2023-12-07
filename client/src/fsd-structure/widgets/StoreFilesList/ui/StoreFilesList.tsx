@@ -26,7 +26,7 @@ const StoreFilesList: FC<StoreFilesList> = ({
                             {
                             ...item
                             }
-                            index={index + 1}
+                            index={index}
                         />
                     )
                 })

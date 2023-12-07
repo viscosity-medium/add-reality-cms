@@ -56,10 +56,15 @@ export {
 
 // custom components [tags]
 
+export { CardWrapper } from "./ui-kit/CardWrapper";
+export { CloseButton } from"./ui-kit/CloseButton";
 export { CustomButton } from "./ui-kit/CustomButton"
 export { CustomHeader } from "./ui-kit/CustomHeader";
+export { CustomInput } from "./ui-kit/CustomInput";
+export { CustomLabel } from "./ui-kit/CustomLabel";
 export { FilePreviewCard } from "./ui-kit/FilePreviewCard";
 export { FilePreviewListItem } from "./ui-kit/FilePreviewListItem";
+export { TextFilledLine } from "./ui-kit/TextFilledLine"
 
 // api
 export { fileTransferApiService} from "./api/fileTransferApiService";
@@ -74,4 +79,8 @@ export {
     definePaddings
 }
 
+
 export { type HProps } from "./_html-tags/ui-kit/ui/Headings";
+export { type InputProps } from "./_html-tags/ui-kit/ui/Input";
+export { type LabelProps } from "./_html-tags/ui-kit/ui/Lable";
+export { type ParagraphProps } from "./_html-tags/ui-kit/ui/Paragraph";

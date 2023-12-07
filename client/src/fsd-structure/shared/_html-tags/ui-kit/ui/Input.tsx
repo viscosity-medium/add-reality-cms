@@ -1,6 +1,6 @@
 import {DetailedHTMLProps, forwardRef, InputHTMLAttributes} from "react";
 
-interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
+export interface InputProps extends DetailedHTMLProps<InputHTMLAttributes<HTMLInputElement>, HTMLInputElement> {}
 
 const Input = forwardRef<HTMLInputElement, InputProps>(({
     children,
