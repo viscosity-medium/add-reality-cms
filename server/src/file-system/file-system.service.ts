@@ -12,15 +12,37 @@ export class FileSystemService {
     }
 
     readFileSync(filePath: string) {
-        return fs.readFileSync(filePath);
+        try {
+            return fs.readFileSync(filePath);
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     writeFileSync(filePath: string, data: string){
-        return fs.writeFileSync(filePath, data);
+        try {
+            return fs.writeFileSync(filePath, data);
+        }
+        catch (error) {
+            console.log(error)
+        }
     }
 
     joinPath(pathParts: string[]){
-        return join(...pathParts);
+        try {
+            return join(...pathParts);
+        } catch (error) {
+            console.log(error)
+        }
+    }
+
+    deleteFileSync(filePath: string){
+        try {
+            fs.unlinkSync(filePath);
+        } catch (error) {
+            console.log(error)
+        }
     }
 
 }

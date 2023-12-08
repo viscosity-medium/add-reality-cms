@@ -4,7 +4,7 @@ import {JsonDatabaseService} from "../json-database/json-database.service";
 import {FileMetadata} from "./dto/file-transfer.dto";
 import {join} from "path";
 import * as process from "process";
-import {PlayerData, StoreFiles} from "../json-database/dto/json-database.dto";
+import {PlayerData, StoreFileProps} from "../json-database/dto/json-database.dto";
 
 @Injectable()
 export class FileTransferService {
@@ -42,12 +42,20 @@ export class FileTransferService {
         return await this.jsonDatabaseService.readDataFromDatabase();
     }
 
-    async updateStoreFiles(storeFiles: StoreFiles[]){
+    async updateStoreFiles(storeFiles: StoreFileProps[]){
         return await this.jsonDatabaseService.updateDatabase(storeFiles)
+    }
+
+    async updatePlayerContent(playerData: PlayerData){
+        return await this.jsonDatabaseService.updatePlayerContent(playerData);
     }
 
     async registerNewPlayer(playerData: PlayerData){
         return await this.jsonDatabaseService.registerNewPlayer(playerData);
+    }
+
+    async deletePlayer(playerData: PlayerData){
+        return await this.jsonDatabaseService.deletePlayer(playerData);
     }
 
 

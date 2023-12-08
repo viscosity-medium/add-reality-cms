@@ -3,6 +3,7 @@ import { AppModule } from './app.module';
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { join } from 'path';
 import {json, raw} from "express";
+import * as process from "process";
 
 async function bootstrap() {
 
@@ -14,7 +15,8 @@ async function bootstrap() {
     });
 
     app.setGlobalPrefix("server-api");
-    app.useStaticAssets(join(__dirname, "..", "static"), {prefix: "/static"});
+    console.log(join(process.cwd(), "static"));
+    app.useStaticAssets(join(process.cwd(), "static"), {prefix: "/static"});
     app.use(json({ limit: "50mb" }));
     //app.use(raw({type: 'application/octet-stream', limit: "100mb"}));
 

@@ -1,4 +1,4 @@
-export interface StoreFiles {
+export interface StoreFileProps {
     id: string
     name: string
     src: string
@@ -11,11 +11,12 @@ export interface PlayerData {
     name: string
     id: string
     xml: string
+    content: StoreFileProps[]
 }
 
 
 export interface JsonDatabase {
-    media: StoreFiles[]
+    media: StoreFileProps[]
     players: PlayerData[]
 }
 

@@ -4,7 +4,8 @@ import {FileMetadata} from "../file-transfer/dto/file-transfer.dto";
 import {join} from "path";
 import * as process from "process";
 import {MediaService} from "../media/media.service";
-import {JsonDatabase, PlayerData, StoreFiles} from "./dto/json-database.dto";
+import {JsonDatabase, PlayerData, StoreFileProps} from "./dto/json-database.dto";
+import {generateXmlContentFillingUtility, generateXmlUtility} from "../utilities/generateXml.utility";
 
 @Injectable()
 export class JsonDatabaseService {
@@ -14,7 +15,7 @@ export class JsonDatabaseService {
        private mediaService: MediaService
     ) {}
 
-    async updateDatabase(storeFiles: StoreFiles[]){
+    async updateDatabase(storeFiles: StoreFileProps[]){
         const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
 
         const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
@@ -26,7 +27,60 @@ export class JsonDatabaseService {
         return storeFiles
     }
 
-    async writeUploadedFileToDataToDatabase(fileMetadata: FileMetadata, fileName: string){
+    async updatePlayerContent(playerData: PlayerData) {
+
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
+        const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
+        const databaseData: JsonDatabase = JSON.parse(databaseBuffer.toString());
+
+        databaseData.players = databaseData.players.reduce((accumulator: PlayerData[], currentPlayer) => {
+            if(currentPlayer.id === playerData.id || currentPlayer.name && playerData.name){
+                return [
+                    ...accumulator,
+                    {
+                        ...currentPlayer,
+                        content: playerData.content
+                    }
+                ]
+            } else {
+                return [...accumulator, currentPlayer]
+            }
+        }, []);
+        const stringData = JSON.stringify(databaseData, null, 4);
+        this.fileSystemService.writeFileSync(dbPath, stringData);
+
+        const xmlContentFilling = generateXmlContentFillingUtility(playerData);
+
+        const xmlData = generateXmlUtility(xmlContentFilling);
+        const xmlPath = this.fileSystemService.joinPath([process.cwd(), "static", "xml", playerData.xml]);
+
+        this.fileSystemService.writeFileSync(xmlPath, xmlData);
+
+    }
+
+    async findFilesInStoreByNames(fileNames: string[]){
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
+        const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
+        const databaseData: JsonDatabase = JSON.parse(databaseBuffer.toString());
+
+        return fileNames.reduce((accumulator, fileName)=> {
+            return [
+                ...accumulator,
+                ...databaseData.media.reduce((accum, current) => {
+                    // console.log(current)
+                    if(fileName === current.name){
+                        return [...accum, current]
+                    } else {
+                        return accum
+                    }
+                }, [])
+            ]
+        }, [])
+
+
+    }
+
+    async writeUploadedFileToDataToDatabase(fileMetadata: FileMetadata, fileName: string) {
 
         const { id, name, type, extension } = fileMetadata;
         const src = join(process.env.NEST_SERVER_HOST, "static", "media", fileName);
@@ -73,14 +127,35 @@ export class JsonDatabaseService {
     async registerNewPlayer(playerData: PlayerData){
 
         const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
-        const fileData: JsonDatabase = JSON.parse(this.fileSystemService.readFileSync(dbPath).toString());
+        const xmlTemplatePath = this.fileSystemService.joinPath([process.cwd(), "static", "xml", "xml-template.xml"]);
+        const xmlTemplate = this.fileSystemService.readFileSync(xmlTemplatePath).toString();
+        const databaseData: JsonDatabase = JSON.parse(this.fileSystemService.readFileSync(dbPath).toString());
+        const xmlId = playerData.xml;
+        const xmlPath = this.fileSystemService.joinPath([process.cwd(), "static", "xml", xmlId]);
 
-        fileData.players.push(playerData);
+        databaseData.players.push(playerData);
 
-        const stringData = JSON.stringify(fileData, null, 4);
+        const stringData = JSON.stringify(databaseData, null, 4);
+        this.fileSystemService.writeFileSync(xmlPath, xmlTemplate);
         this.fileSystemService.writeFileSync(dbPath, stringData);
 
-        return fileData;
+        return databaseData;
+
+    }
+
+    async deletePlayer(playerData: PlayerData){
+
+        const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
+        const xmlPath = this.fileSystemService.joinPath([process.cwd(), "static",  "xml", playerData.xml]);
+        const databaseData: JsonDatabase = JSON.parse(this.fileSystemService.readFileSync(dbPath).toString());
+
+        databaseData.players = databaseData.players.filter(player => player.id !== playerData.id);
+        const stringData = JSON.stringify(databaseData, null, 4);
+        this.fileSystemService.writeFileSync(dbPath, stringData);
+        this.fileSystemService.deleteFileSync(xmlPath);
+
+        return databaseData.players;
+
     }
 
 }
