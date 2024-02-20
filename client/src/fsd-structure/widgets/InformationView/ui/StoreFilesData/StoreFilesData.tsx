@@ -34,7 +34,7 @@ const StoreFilesData = () => {
                     })
                 }
             >
-                Контент в расписании
+                Файлы в хранилище
             </CustomHeader>
             <Div
                 className={cls.informationWrapper}
@@ -42,7 +42,10 @@ const StoreFilesData = () => {
                 <Div
                     className={cls.storeFilesListWrapper}
                 >
-                    <StoreFilesList/>
+                    <StoreFilesList
+                        sourceType={"store"}
+                        isMutable
+                    />
                 </Div>
                 <Hr
                     className={cls.hr}

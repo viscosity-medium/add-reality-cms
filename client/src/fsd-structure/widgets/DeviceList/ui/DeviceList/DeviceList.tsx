@@ -1,7 +1,6 @@
 'use client'
 
 import {Aside, CustomButton, CustomHeader, defineMargins, Div, Ul} from "@/fsd-structure/shared";
-import {deviceListTestData} from "../../model/deviceList.testData";
 import {DeviceListItem} from "../DeviceListItem/DeviceListItem";
 import cls from "./deviceList.module.scss";
 import {useSelector} from "react-redux";
@@ -12,7 +11,7 @@ const DeviceList = () => {
 
     const playersList = useSelector(getPlayersList);
     const { setModalVisible } = useChangeModalVisibility();
-    console.log(playersList)
+
     return (
         <Aside
             className={cls.aside}
@@ -36,7 +35,8 @@ const DeviceList = () => {
                             playersList.length > 0 && playersList.map(({
                                 id,
                                 name,
-                                xml
+                                xml,
+                                content
                             }, index) => {
                                 return(
                                     <DeviceListItem
@@ -45,6 +45,7 @@ const DeviceList = () => {
                                         name={name}
                                         xml={xml}
                                         index={index}
+                                        content={content}
                                     />
                                 )
                             })

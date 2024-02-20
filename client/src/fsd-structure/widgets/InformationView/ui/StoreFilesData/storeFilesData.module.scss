@@ -12,6 +12,11 @@
     margin: 12px 0;
     width: 100%;
 
+    .filesHeader {
+        width: 100%;
+        text-align: center;
+    }
+
     .storeFilesListWrapper {
         overflow-y: auto;
         width: 50%;
@@ -25,7 +30,8 @@
         border-radius: 2px;
     }
 
-    .filesUploader{
+    .filesUploader {
+        overflow-y: auto;
         width: 50%;
     }
 }

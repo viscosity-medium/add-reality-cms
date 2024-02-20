@@ -15,9 +15,9 @@ return playerData.content.reduce((accumulator: string, currentContentItem: Store
 return (
     `${accumulator}
         <pic>${
-        currentContentItem.src.replace(
-            /http:\\localhost:3002\\static\\media/, 
-            "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media")
+        currentContentItem.src
+            .replace(/:\\+|:\/+/, "://")
+            .replace(/\\/gm, "/")
         }</pic>`
 )
 

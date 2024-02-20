@@ -25,7 +25,6 @@ export class SchedulingService {
                 xml: "00001.xml",
                 content: selectedFiles
             })
-            console.log(selectedFiles)
         } catch (error){
             console.log(error);
         }

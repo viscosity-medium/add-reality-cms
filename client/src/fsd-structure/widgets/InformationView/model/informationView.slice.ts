@@ -1,19 +1,32 @@
 import {createSlice, PayloadAction} from "@reduxjs/toolkit";
 import {InformationViewScheme} from "@/fsd-structure/widgets";
-import {Mode, PlayerData} from "@/fsd-structure/widgets/InformationView/types/InformationView";
+import {Mode, PlayerDataProps} from "@/fsd-structure/widgets/InformationView/types/InformationView";
 import {fetchDatabaseData} from "@/fsd-structure/widgets/InformationView/model/asyncThunks/informationView.asynkThunk";
 import { StoreFileProps } from "@/fsd-structure/widgets/StoreFilesList/model/storeFilesList.slice";
 import {
     uploadMultipleFilesByChunks
 } from "@/fsd-structure/widgets/InformationView/model/asyncThunks/fileUploader.asyncThunk";
 import {updateStoreFiles} from "@/fsd-structure/widgets/InformationView/model/asyncThunks/updateStoreFiles.asyncThunk";
+import {deletePlayer} from "@/fsd-structure/widgets/InformationView/model/asyncThunks/deletePlayer.asyncThunk";
+import {
+    updatePlayerContent
+} from "@/fsd-structure/widgets/InformationView/model/asyncThunks/updatePlayerContent.asyncThunk";
 
 const initialState: InformationViewScheme = {
     mode: "store",
     playerData: {
         id: "",
         name: "",
-        xml: ""
+        xml: "",
+        content: []
+    },
+    playerSchedule: {
+        id: "",
+        name: "",
+        type: "",
+        src: "",
+        extension: "",
+        previewSrc: ""
     },
     playersList: [],
     storeFilesBuffer: [],
@@ -29,9 +42,10 @@ const informationViewSlice = createSlice({
         setCurrentPlayerId: (state, action: PayloadAction<string>) => { state.playerData = {...state.playerData, id: action.payload}},
         setCurrentPlayerName: (state, action: PayloadAction<string>) => { state.playerData = {...state.playerData, name: action.payload}},
         setCurrentXmlId: (state, action: PayloadAction<string>) => { state.playerData = {...state.playerData, xml: action.payload}},
+        setCurrentPlayerContent: (state, action: PayloadAction<StoreFileProps[]>) => { state.playerData = {...state.playerData, content: action.payload}},
         
-        setFileStore: (state, action) => { state.storeFiles = action.payload },
-        setPlayersList: (state, action: PayloadAction<PlayerData[]>) => { state.playersList = action.payload }
+        setStoreFiles: (state, action) => { state.storeFiles = action.payload },
+        setPlayersList: (state, action: PayloadAction<PlayerDataProps[]>) => { state.playersList = action.payload }
     },
     extraReducers: (builder) => {
         builder.addCase(fetchDatabaseData.fulfilled, (state, action: any) => {
@@ -55,6 +69,16 @@ const informationViewSlice = createSlice({
             const storeFiles: StoreFileProps[] = action.payload
             state.storeFiles = storeFiles;
             state.storeFilesBuffer = storeFiles;
+        })
+
+        builder.addCase(deletePlayer.fulfilled, (state, action: any) => {
+            console.log(action.payload)
+            const playersList: PlayerDataProps[] = action.payload
+            state.playersList = playersList;
+        })
+
+        builder.addCase(updatePlayerContent.fulfilled, () => {
+
         })
     }
 });

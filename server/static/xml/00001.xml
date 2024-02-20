@@ -1,9 +1,9 @@
 <Offer>
     <pics>
-        <pic>C:\Users\evgen\Desktop\Job\Web\digisky\addreality-cms\server\static\media\8855fed3-a331-4d94-b0b3-4b7ab98e36a9.mp4</pic>
-        <pic>C:\Users\evgen\Desktop\Job\Web\digisky\addreality-cms\server\static\media\e0a6dbfd-e944-4d2d-aa6f-89ebd3ec5e9d.mp4</pic>
-        <pic>C:\Users\evgen\Desktop\Job\Web\digisky\addreality-cms\server\static\media\a2cb9c7f-505e-4e3b-bcf4-12092376a627.mp4</pic>
-        <pic>C:\Users\evgen\Desktop\Job\Web\digisky\addreality-cms\server\static\media\2fb3a13a-50fd-485c-a7d5-6ed8735e450e.mp4</pic>
-        <pic>C:\Users\evgen\Desktop\Job\Web\digisky\addreality-cms\server\static\media\e7299442-be76-484b-ad30-662405586aec.mp4</pic>
+        <pic>http://localhost:3002/static/media/400e122d-e265-4898-9eec-13e601bf6b64.mp4</pic>
+        <pic>http://localhost:3002/static/media/c457e900-c7fb-42cc-9a39-923f354d3f93.mp4</pic>
+        <pic>http://localhost:3002/static/media/400e122d-e265-4898-9eec-13e601bf6b64.mp4</pic>
+        <pic>http://localhost:3002/static/media/c6b29615-8be8-4774-abfa-df92e1dd92cc.mp4</pic>
+        <pic>http://localhost:3002/static/media/94bac677-d515-4a6a-b74d-9b46e590adf4.mp4</pic>
     </pics>
 </Offer>

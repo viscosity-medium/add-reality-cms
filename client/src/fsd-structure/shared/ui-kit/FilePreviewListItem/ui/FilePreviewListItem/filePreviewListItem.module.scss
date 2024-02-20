@@ -1,4 +1,4 @@
-.listItem {
+.contentWrapper {
     position: relative;
     overflow: hidden;
     display: flex;
@@ -9,8 +9,28 @@
     width: 100%;
     height: 50px;
     font-size: 20px;
+    text-align: left;
     border: 1px solid #5610be;
     border-radius: 8px;
+    color: #5610be;
+    transition: 0.3s;
+
+
+}
+
+
+.listItem {
+
+    &:hover{
+
+        .interactiveButton {
+            @media (hover: hover) and (pointer: fine) {
+                transform: scale(1.03);
+                box-shadow: 0 0 8px rgba(243, 225, 225, 0.8);
+            }
+        }
+
+    }
 
     &Paragraph {
         overflow: hidden;
@@ -42,3 +62,4 @@
         }
     }
 }
+

@@ -7,7 +7,7 @@ const Main: FC<MainProps> = ({
     className,
     ...otherProps
 }) => {
-    console.log(process.env.NEXT_PUBLIC_SERVER_HOST)
+    console.log(process.env.NEXT_PUBLIC_SERVER_HOST);
     return (
         <main
             className={className}

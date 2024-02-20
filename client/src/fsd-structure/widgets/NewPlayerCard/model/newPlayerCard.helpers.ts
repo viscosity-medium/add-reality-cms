@@ -1,6 +1,6 @@
-import {PlayerData} from "@/fsd-structure/widgets/InformationView/types/InformationView";
+import {PlayerDataProps} from "@/fsd-structure/widgets/InformationView/types/InformationView";
 
-export const generateNewXmlId = (playersList: PlayerData[]) => {
+export const generateNewXmlId = (playersList: PlayerDataProps[]) => {
 
     const lastXmlId = playersList.reduce((accumulator, currentValue) => {
         const xmlId = +(currentValue.xml.replace(/\.xml/,""));

@@ -40,7 +40,7 @@ export class GoogleService implements OnModuleInit {
             spreadsheetId: process.env.GOOGLE_SHEETS_ID,
             range: "main!B1:B1000"
         });
-
+        console.log(player1Data);
         const player1 = player1Data.values[0][0] === "Player_1" ? extractScheduleFromGoogleSheets(player1Data) : [];
 
         return player1

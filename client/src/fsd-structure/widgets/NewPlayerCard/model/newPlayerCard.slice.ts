@@ -6,6 +6,7 @@ const initialState: NewPlayerCardScheme = {
     name: "",
     id: "",
     xml: "",
+    content: []
 }
 
 const newPlayerSlice = createSlice({

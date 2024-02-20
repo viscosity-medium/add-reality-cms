@@ -1,8 +1,6 @@
+import {PlayerDataProps} from "@/fsd-structure/widgets/InformationView/types/InformationView";
 
-export interface DeviceListDataItem {
-    id: string,
-    name: string
-    xml: string
+export interface DeviceListDataItem extends PlayerDataProps{
     index?: number
 }
 

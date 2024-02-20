@@ -1,7 +1,7 @@
 import {AxiosApi} from "./axiosInstance";
 import {UploadFileByChunks} from "./types/fileTransferApiService";
 import {StoreFileProps} from "@/fsd-structure/widgets/StoreFilesList/model/storeFilesList.slice";
-import {PlayerData} from "@/fsd-structure/widgets/InformationView/types/InformationView";
+import {PlayerDataProps} from "@/fsd-structure/widgets/InformationView/types/InformationView";
 
 class FileTransferApiService extends AxiosApi {
 
@@ -51,9 +51,29 @@ class FileTransferApiService extends AxiosApi {
         }
     }
 
-    async registerNewPlayer(playerData: PlayerData){
+    async updatePlayerContent(playerData: PlayerDataProps){
+        try {
+            return await this.axiosJsonInstance.patch(
+                "/files-transfer/update-player-content",
+                playerData
+            )
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+
+    async registerNewPlayer(playerData: PlayerDataProps){
         try {
             return await this.axiosJsonInstance.patch("/files-transfer/register-new-player", playerData);
+        } catch (err){
+            console.log(err);
+        }
+    }
+
+    async deletePlayer(playerData: PlayerDataProps){
+        try {
+            return await this.axiosJsonInstance.patch("/files-transfer/delete-player", playerData);
         } catch (err){
             console.log(err);
         }

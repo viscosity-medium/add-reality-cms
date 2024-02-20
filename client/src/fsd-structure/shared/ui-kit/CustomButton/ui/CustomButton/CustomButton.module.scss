@@ -6,6 +6,8 @@
     transition: 0.3s;
     border-radius: 30px;
     flex-shrink: 0;
+    //text-shadow: 1px 1px 2px #5610be59;
+    font-weight: 600;
 
     &:not([disabled]):hover {
         @media (hover: hover) and (pointer: fine) {
