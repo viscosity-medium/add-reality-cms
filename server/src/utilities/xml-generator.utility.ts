@@ -1,11 +1,10 @@
 import {PlayerData, StoreFileProps} from "../json-database/dto/json-database.dto";
 
-export const generateXmlUtility = (xmlContent: string) => {
+export const xmlGeneratorUtility = (xmlContent: string) => {
 return(
-`<Offer>
-    <pics>${xmlContent}
-    </pics>
-</Offer>`
+`<CurrentContent>
+    ${xmlContent}
+</CurrentContent>`
 )
 }
 

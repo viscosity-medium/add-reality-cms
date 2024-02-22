@@ -1,93 +1,14 @@
 {
-    "media": [
-        {
-            "id": "440ad908-9982-4867-be72-cd44c812a8a8",
-            "name": "1536х384.mp4",
-            "type": "video/mp4",
-            "src": "http:\\localhost:3002\\static\\media\\440ad908-9982-4867-be72-cd44c812a8a8.mp4",
-            "extension": "mp4",
-            "previewSrc": "http:\\localhost:3002\\static\\media\\440ad908-9982-4867-be72-cd44c812a8a8__preview.jpg"
-        },
-        {
-            "id": "94bac677-d515-4a6a-b74d-9b46e590adf4",
-            "name": "interer_spirit_-_1536х384.mp4",
-            "type": "video/mp4",
-            "src": "http:\\localhost:3002\\static\\media\\94bac677-d515-4a6a-b74d-9b46e590adf4.mp4",
-            "extension": "mp4",
-            "previewSrc": "http:\\localhost:3002\\static\\media\\94bac677-d515-4a6a-b74d-9b46e590adf4__preview.jpg"
-        },
-        {
-            "id": "c457e900-c7fb-42cc-9a39-923f354d3f93",
-            "name": "LG Trail MOS2023 banner 20s wo_a 1920x1080.mp4",
-            "type": "video/mp4",
-            "src": "http:\\localhost:3002\\static\\media\\c457e900-c7fb-42cc-9a39-923f354d3f93.mp4",
-            "extension": "mp4",
-            "previewSrc": "http:\\localhost:3002\\static\\media\\c457e900-c7fb-42cc-9a39-923f354d3f93__preview.jpg"
-        },
-        {
-            "id": "400e122d-e265-4898-9eec-13e601bf6b64",
-            "name": "PUMPITUP.mp4",
-            "type": "video/mp4",
-            "src": "http:\\localhost:3002\\static\\media\\400e122d-e265-4898-9eec-13e601bf6b64.mp4",
-            "extension": "mp4",
-            "previewSrc": "http:\\localhost:3002\\static\\media\\400e122d-e265-4898-9eec-13e601bf6b64__preview.jpg"
-        },
-        {
-            "id": "c6b29615-8be8-4774-abfa-df92e1dd92cc",
-            "name": "RX_08_04.mp4",
-            "type": "video/mp4",
-            "src": "http:\\localhost:3002\\static\\media\\c6b29615-8be8-4774-abfa-df92e1dd92cc.mp4",
-            "extension": "mp4",
-            "previewSrc": "http:\\localhost:3002\\static\\media\\c6b29615-8be8-4774-abfa-df92e1dd92cc__preview.jpg"
-        }
-    ],
+    "media": [],
     "players": [
         {
             "id": "6638aabd-f4e4-4447-967d-176315949084",
             "name": "Player_1",
             "xml": "00001.xml",
-            "content": [
-                {
-                    "id": "400e122d-e265-4898-9eec-13e601bf6b64",
-                    "name": "PUMPITUP.mp4",
-                    "type": "video/mp4",
-                    "src": "http:\\localhost:3002\\static\\media\\400e122d-e265-4898-9eec-13e601bf6b64.mp4",
-                    "extension": "mp4",
-                    "previewSrc": "http:\\localhost:3002\\static\\media\\400e122d-e265-4898-9eec-13e601bf6b64__preview.jpg"
-                },
-                {
-                    "id": "c457e900-c7fb-42cc-9a39-923f354d3f93",
-                    "name": "LG Trail MOS2023 banner 20s wo_a 1920x1080.mp4",
-                    "type": "video/mp4",
-                    "src": "http:\\localhost:3002\\static\\media\\c457e900-c7fb-42cc-9a39-923f354d3f93.mp4",
-                    "extension": "mp4",
-                    "previewSrc": "http:\\localhost:3002\\static\\media\\c457e900-c7fb-42cc-9a39-923f354d3f93__preview.jpg"
-                },
-                {
-                    "id": "400e122d-e265-4898-9eec-13e601bf6b64",
-                    "name": "PUMPITUP.mp4",
-                    "type": "video/mp4",
-                    "src": "http:\\localhost:3002\\static\\media\\400e122d-e265-4898-9eec-13e601bf6b64.mp4",
-                    "extension": "mp4",
-                    "previewSrc": "http:\\localhost:3002\\static\\media\\400e122d-e265-4898-9eec-13e601bf6b64__preview.jpg"
-                },
-                {
-                    "id": "c6b29615-8be8-4774-abfa-df92e1dd92cc",
-                    "name": "RX_08_04.mp4",
-                    "type": "video/mp4",
-                    "src": "http:\\localhost:3002\\static\\media\\c6b29615-8be8-4774-abfa-df92e1dd92cc.mp4",
-                    "extension": "mp4",
-                    "previewSrc": "http:\\localhost:3002\\static\\media\\c6b29615-8be8-4774-abfa-df92e1dd92cc__preview.jpg"
-                },
-                {
-                    "id": "94bac677-d515-4a6a-b74d-9b46e590adf4",
-                    "name": "interer_spirit_-_1536х384.mp4",
-                    "type": "video/mp4",
-                    "src": "http:\\localhost:3002\\static\\media\\94bac677-d515-4a6a-b74d-9b46e590adf4.mp4",
-                    "extension": "mp4",
-                    "previewSrc": "http:\\localhost:3002\\static\\media\\94bac677-d515-4a6a-b74d-9b46e590adf4__preview.jpg"
-                }
-            ]
+            "content": []
         }
+    ],
+    "templates": [
+
     ]
 }

@@ -1,0 +1,65 @@
+{
+    "files": [
+        {
+            "name": "05 - 01 MU.mp4",
+            "duration": "00:04:34",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2001%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 01 MU.mp4"
+        },
+        {
+            "name": "05 - 02 MU.mp4",
+            "duration": "00:04:06",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2002%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 02 MU.mp4"
+        },
+        {
+            "name": "05 - 03 MU.mp4",
+            "duration": "00:03:54",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2003%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 03 MU.mp4"
+        },
+        {
+            "name": "05 - 04 MU.mp4",
+            "duration": "00:05:22",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2004%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 04 MU.mp4"
+        },
+        {
+            "name": "05 - 05 MU.mp4",
+            "duration": "00:03:57",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2005%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 05 MU.mp4"
+        },
+        {
+            "name": "05 - 06 MU.mp4",
+            "duration": "00:04:45",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2006%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 06 MU.mp4"
+        },
+        {
+            "name": "05 - 07 MU.mp4",
+            "duration": "00:03:14",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2007%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 07 MU.mp4"
+        },
+        {
+            "name": "05 - 08 MU.mp4",
+            "duration": "00:04:05",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2008%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 08 MU.mp4"
+        },
+        {
+            "name": "05 - 09 MU.mp4",
+            "duration": "00:04:24",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2009%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 09 MU.mp4"
+        },
+        {
+            "name": "05 - 10 MU.mp4",
+            "duration": "00:05:16",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_move_up_template\\05%20-%2010%20MU.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_move_up_template\\05 - 10 MU.mp4"
+        }
+    ],
+    "duration": "00:43:37"
+}

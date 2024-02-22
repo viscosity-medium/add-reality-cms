@@ -19,7 +19,7 @@ export const useSelectedFilesChange = (ref: RefObject<HTMLInputElement>) => {
     const onFileInputChange = (event: ChangeEvent<HTMLInputElement>) => {
         if(event?.target?.files){
             const filesArray = Array.from(event.target.files);
-            console.log( filesArray );
+            // console.log( filesArray );
             setFiles( prevState => filesArray );
             onSelectedFilesChange(filesArray);
         }

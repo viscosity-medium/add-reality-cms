@@ -1,0 +1,41 @@
+{
+    "files": [
+        {
+            "name": "03 - 01 SH.mp4",
+            "duration": "00:05:39",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_starhit_template\\03%20-%2001%20SH.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_starhit_template\\03 - 01 SH.mp4"
+        },
+        {
+            "name": "03 - 02 SH.mp4",
+            "duration": "00:05:03",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_starhit_template\\03%20-%2002%20SH.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_starhit_template\\03 - 02 SH.mp4"
+        },
+        {
+            "name": "03 - 03 SH.mp4",
+            "duration": "00:06:15",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_starhit_template\\03%20-%2003%20SH.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_starhit_template\\03 - 03 SH.mp4"
+        },
+        {
+            "name": "03 - 04 SH.mp4",
+            "duration": "00:04:57",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_starhit_template\\03%20-%2004%20SH.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_starhit_template\\03 - 04 SH.mp4"
+        },
+        {
+            "name": "03 - 05 SH.mp4",
+            "duration": "00:05:08",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_starhit_template\\03%20-%2005%20SH.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_starhit_template\\03 - 05 SH.mp4"
+        },
+        {
+            "name": "03 - 06 SH.mp4",
+            "duration": "00:03:32",
+            "url": "http:\\localhost:3002\\static\\media\\virtual_starhit_template\\03%20-%2006%20SH.mp4",
+            "path": "C:\\Users\\evgen\\Desktop\\Job\\Web\\digisky\\addreality-cms\\server\\static\\media\\virtual_starhit_template\\03 - 06 SH.mp4"
+        }
+    ],
+    "duration": "00:30:34"
+}

@@ -1,6 +1,6 @@
-import {Injectable} from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
+import { join } from "path";
 import * as fs from "fs";
-import {join} from "path";
 
 @Injectable()
 export class FileSystemService {

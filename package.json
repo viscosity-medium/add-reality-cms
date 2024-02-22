@@ -5,6 +5,7 @@
   },
   "dependencies": {
     "@ffmpeg-installer/ffmpeg": "^1.1.0",
+    "@nestjs/mapped-types": "*",
     "fluent-ffmpeg": "^2.1.2",
     "immutability-helper": "^3.1.1",
     "react-dnd": "^16.0.1",

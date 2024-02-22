@@ -15,7 +15,6 @@ async function bootstrap() {
     });
 
     app.setGlobalPrefix("server-api");
-    console.log(join(process.cwd(), "static"));
     app.useStaticAssets(join(process.cwd(), "static"), {prefix: "/static"});
     app.use(json({ limit: "50mb" }));
     //app.use(raw({type: 'application/octet-stream', limit: "100mb"}));

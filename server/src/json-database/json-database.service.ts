@@ -5,7 +5,7 @@ import {join} from "path";
 import * as process from "process";
 import {MediaService} from "../media/media.service";
 import {JsonDatabase, PlayerData, StoreFileProps} from "./dto/json-database.dto";
-import {generateXmlContentFillingUtility, generateXmlUtility} from "../utilities/generateXml.utility";
+import {generateXmlContentFillingUtility, xmlGeneratorUtility} from "../utilities/xml-generator.utility";
 
 @Injectable()
 export class JsonDatabaseService {
@@ -16,6 +16,7 @@ export class JsonDatabaseService {
     ) {}
 
     async updateDatabase(storeFiles: StoreFileProps[]){
+
         const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
 
         const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
@@ -24,7 +25,8 @@ export class JsonDatabaseService {
         const stringData = JSON.stringify(newData, null, 4);
 
         this.fileSystemService.writeFileSync(dbPath, stringData);
-        return storeFiles
+        return storeFiles;
+
     }
 
     async updatePlayerContent(playerData: PlayerData) {
@@ -51,14 +53,15 @@ export class JsonDatabaseService {
 
         const xmlContentFilling = generateXmlContentFillingUtility(playerData);
 
-        const xmlData = generateXmlUtility(xmlContentFilling);
+        const xmlData = xmlGeneratorUtility(xmlContentFilling);
         const xmlPath = this.fileSystemService.joinPath([process.cwd(), "static", "xml", playerData.xml]);
 
         this.fileSystemService.writeFileSync(xmlPath, xmlData);
 
     }
 
-    async findFilesInStoreByNames(fileNames: string[]){
+    async findFilesInStoreByNames(fileNames: string[]) {
+
         const dbPath = this.fileSystemService.joinPath([process.cwd(), "database", "database.json"]);
         const databaseBuffer = this.fileSystemService.readFileSync(dbPath);
         const databaseData: JsonDatabase = JSON.parse(databaseBuffer.toString());
@@ -67,7 +70,6 @@ export class JsonDatabaseService {
             return [
                 ...accumulator,
                 ...databaseData.media.reduce((accum, current) => {
-                    // console.log(current)
                     if(fileName === current.name){
                         return [...accum, current]
                     } else {
@@ -76,7 +78,6 @@ export class JsonDatabaseService {
                 }, [])
             ]
         }, [])
-
 
     }
 
