@@ -23,7 +23,7 @@ export class FileTransferService {
             this.fileSystemService.appendFileSync(filePath, fileChunk);
 
             if(fileMetadata.currentChunkIndex === fileMetadata.totalChunksAmount){
-                return await this.jsonDatabaseService.writeUploadedFileToDataToDatabase(fileMetadata, fileName)
+                return await this.jsonDatabaseService.writeUploadedFileToDatabase(fileMetadata, fileName)
             }
             return {
                 message: "Files are still being uploaded"

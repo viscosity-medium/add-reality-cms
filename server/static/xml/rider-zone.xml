@@ -1,3 +1,5 @@
-<CurrentContent>
-    http:\localhost:3002\static\media\_default_template\logo.png
-</CurrentContent>
+<ContentContainer>
+    <CurrentContent>
+        http:/localhost:3002/static/media/_default_template/logo.png
+    </CurrentContent>
+</ContentContainer>

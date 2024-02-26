@@ -81,7 +81,7 @@ export class JsonDatabaseService {
 
     }
 
-    async writeUploadedFileToDataToDatabase(fileMetadata: FileMetadata, fileName: string) {
+    async writeUploadedFileToDatabase(fileMetadata: FileMetadata, fileName: string) {
 
         const { id, name, type, extension } = fileMetadata;
         const src = join(process.env.NEST_SERVER_HOST, "static", "media", fileName);

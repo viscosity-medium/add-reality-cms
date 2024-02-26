@@ -2,8 +2,10 @@ import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { join } from 'path';
-import {json, raw} from "express";
+import { json } from "express";
 import * as process from "process";
+
+declare const module: any;
 
 async function bootstrap() {
 
@@ -22,6 +24,11 @@ async function bootstrap() {
     await app.listen(port, () => {
         console.log(`Server started on port ${port}`);
     });
+
+    if (module.hot) {
+        module.hot.accept();
+        module.hot.dispose(() => app.close());
+    }
 
 }
 

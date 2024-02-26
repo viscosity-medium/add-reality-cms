@@ -15,6 +15,16 @@ export class MediaService {
         this.ffmpeg.setFfmpegPath(ffmpegPath.path);
     }
 
+    async getVideoPreview(fileInput: string, fileOutput: string, size: string){
+        this.ffmpeg(fileInput)
+        .screenshot({
+            size,
+            timestamps: [1.0],
+            filename: fileOutput,
+            count: 1
+        })
+    }
+
     async resizeMedia(fileInput: string, fileOutput: string, size: number){
 
         return (
@@ -30,16 +40,6 @@ export class MediaService {
             })
         );
 
-    }
-
-    async getVideoPreview(fileInput: string, fileOutput: string, size: string){
-        this.ffmpeg(fileInput)
-        .screenshot({
-            size,
-            timestamps: [1.0],
-            filename: fileOutput,
-            count: 1
-        })
     }
 
 }

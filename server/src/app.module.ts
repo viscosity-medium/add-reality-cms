@@ -9,6 +9,8 @@ import { SchedulingModule } from './scheduling/scheduling.module';
 import { GoogleModule } from './google/google.module';
 import { ScheduleTemplatesModule } from './schedule-templates/schedule-templates.module';
 import { MediaFileManipulationModule } from './media-file-manipulation/media-file-manipulation.module';
+import { TemplateModule } from './template/template.module';
+import { TimeConverterModule } from './time-converter/time-converter.module';
 import * as process from "process";
 
 @Module({
@@ -24,7 +26,9 @@ import * as process from "process";
         SchedulingModule,
         GoogleModule,
         ScheduleTemplatesModule,
-        MediaFileManipulationModule
+        MediaFileManipulationModule,
+        TemplateModule,
+        TimeConverterModule
     ],
 })
 export class AppModule {}

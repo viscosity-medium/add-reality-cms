@@ -66,7 +66,9 @@ export class ScheduleTemplatesService {
         }
 
         const timeDurationArray: string[] = templateFileContent.files.map((file) => file.duration);
-        templateFileContent.duration = timeConverter.countTotalTimeDuration(timeDurationArray);
+        templateFileContent.duration = timeConverter.countTotalTimeDuration({
+            timeDurationArray
+        });
 
         this.fileSystemService.writeFileSync(
             templateFilePath,

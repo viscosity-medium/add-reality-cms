@@ -2,19 +2,22 @@ import {Injectable, OnModuleInit} from '@nestjs/common';
 import {GoogleService} from "../google/google.service";
 import {JsonDatabaseService} from "../json-database/json-database.service";
 import {FileSystemService} from "../file-system/file-system.service";
-import {GymTimeSlotDataAsObject, Schedule} from "../google/types/google";
+import {Schedule} from "../google/types/google";
 import {ScheduleTemplatesService} from "../schedule-templates/schedule-templates.service";
 import {ScheduleTemplate} from "../schedule-templates/dto/schedule-templates.dto";
 import * as process from "process";
 import * as path from 'path';
-import {translator} from "../utilities/translator";
 import {xmlGeneratorUtility} from "../utilities/xml-generator.utility";
+import {TemplateContent} from "../types/files";
+import {TemplateService} from 'src/template/template.service';
+import {timeConverter} from "../utilities/time-converter";
 
 @Injectable()
 export class SchedulingService implements OnModuleInit {
 
     constructor(
         private googleService: GoogleService,
+        private templateService: TemplateService,
         private fileSystemService: FileSystemService,
         private jsonDatabaseService: JsonDatabaseService,
         private scheduleTemplatesService: ScheduleTemplatesService
@@ -42,7 +45,7 @@ export class SchedulingService implements OnModuleInit {
             });
 
             // создаем шаблоны с указанием информации о файлах и продолжительности
-            await this.scheduleTemplatesService.createMultipleTemplates({ rawTemplateData: templates});
+            await this.scheduleTemplatesService.createMultipleTemplates({ rawTemplateData: templates });
 
             await this.findCurrentContentInAllTemplates({
                 masterSchedule: scheduleDataWithProtectedTemplates
@@ -142,87 +145,57 @@ export class SchedulingService implements OnModuleInit {
     }) {
 
         const gymNames = Object.keys(masterSchedule.gym);
-        const currentTime = new Date().getTime();
-        const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
+        // const timezoneOffset = new Date().getTimezoneOffset() * 60 * 1000;
 
         for await (const gymName of gymNames) {
 
+            const currentTime = new Date().getTime()
             const gymSchedule = masterSchedule.gym[gymName];
-            let chosenSlotData = undefined;
             let templateStartTime = new Date().getTime();
 
-            const currentPlayingTemplate = gymSchedule.reduce((accumulator, slotData, index) => {
+            // отрефакторить/дуструктурировать 2 метода (разнести в другие сервисы если необходимо)
+            const {
+                currentSlotData, currentTemplatePath, nextSlotData, nextTemplatePath
+            } = this.templateService.getCurrentPlayingTemplate({ gymSchedule, templateStartTime });
+            const {
+                templateDuration, currentPlayingFile
+            } = this.templateService.getTemplateDuration({ currentTemplatePath, currentSlotData });
 
-                const currentTemplateStartTime = new Date(slotData.timeStamp).getTime();
-                const previousTemplateStartTime = index === 0 ? 0 :
-                    new Date(gymSchedule[index - 1].timeStamp).getTime();
+            const currentScheduleEndTimeInMilliseconds = timeConverter.summarizeAllMilliseconds([currentSlotData.timeStamp.getTime(), templateDuration]);
+            const nextScheduleEndTimeInMilliseconds = nextSlotData.timeStamp.getTime();
+            const currentTemplateTimeoutTimer = (currentScheduleEndTimeInMilliseconds - currentTime);
+            const nextTemplateTimeoutTimer = (nextScheduleEndTimeInMilliseconds - currentTime);
 
-                const currentDelta = currentTime - currentTemplateStartTime;
-                const previousDelta = currentTime - previousTemplateStartTime;
-
-                if(currentDelta <= 0 && previousDelta >= 0) {
-
-                    templateStartTime = gymSchedule[index - 1].timeStamp.getTime();
-                    chosenSlotData = gymSchedule[index - 1];
-                    return gymSchedule[index - 1].template;
-
-                } else if(currentDelta < 0 && previousDelta < 0) {
-                    return accumulator;
-                } else if(currentDelta > 0 && previousDelta > 0) {
-                    return accumulator;
-                } else {
-                    console.log("Что-то пошло не так")
-                }
-
-            }, "_default_template");
-
-            const defaultTemplateFilePath = path.join(process.cwd(), "database", "templates", `_default_template.json`);
-            const defaultTemplateFileContent = JSON.parse(this.fileSystemService.readFileSync(defaultTemplateFilePath).toString());
-
-            const templateFilePath = path.join(process.cwd(), "database", "templates", `${currentPlayingTemplate}.json`);
-            const templateFileContent = JSON.parse(this.fileSystemService.readFileSync(templateFilePath).toString());
-
-            let chosenFile = undefined
-            let chosenFileIndex = 0;
-
-            const fileEndTime = templateFileContent.files.reduce((accumulator, currentFile, index) => {
-
-                const fileDurationInSeconds = currentFile.duration;
-                const fileStartTime = new Date(chosenSlotData.timeStamp).getTime();
-
-                const [hours, minutes, seconds] = fileDurationInSeconds.split(":").map((time) => parseInt(time));
-                const newContentDurationInMillis = accumulator + ((hours * 3600) + (minutes * 60) + seconds) * 1000;
-                const previousContentEndTime = fileStartTime + accumulator;
-                const currentContentEndTime = fileStartTime + newContentDurationInMillis;
-                const currentDelta = currentContentEndTime - currentTime;
-                const previousDelta = previousContentEndTime - currentTime;
-                // еслли абсолютное время окончания текущего файла больше текущего времени и
-                // абсолютное время окончания предыдущего файла меньше текущего времени,
-                // то выводим информацию о предыдущем контенте
-                if( currentDelta >= 0 && previousDelta <= 0) { // контент с индексом index - 1 сейчас воспроизводится
-                    chosenFileIndex = index !== 0 ? index - 1 : 0;
-                    chosenFile = templateFileContent.files[chosenFileIndex];
-                    return newContentDurationInMillis;
-                } else if(currentDelta >= 0 && currentDelta >= 0) { // Контент ещё не начался
-                    return accumulator;
-                } else if(currentDelta <= 0 && currentDelta <= 0) { // Контент уже закончился
-                    chosenFileIndex = 0;
-                    chosenFile = defaultTemplateFileContent.files[0];
-                    return newContentDurationInMillis;
-                }
-
-            }, 0);
-
-            const absoluteEndTime = new Date(chosenSlotData.timeStamp.getTime() + fileEndTime);
-
-
-            const xmlFileContent = xmlGeneratorUtility(chosenFile.url)
+            const xmlFileContent = xmlGeneratorUtility(currentPlayingFile.url.replace(/\\/gm, "/"));
             const xmlFilePath = path.join(process.cwd(), "static", "xml", `${gymName}.xml`);
 
             this.fileSystemService.writeFileSync(xmlFilePath, xmlFileContent);
 
-            console.log(chosenFile);
-            console.log(absoluteEndTime);
+            if(gymName === "zal-gp") {
+                // console.log(currentSlotData.timeStamp);
+                // console.log(currentPlayingFile);
+                console.log(nextSlotData);
+            }
+
+            // __переключатель файлов в шаблоне__
+            if(currentTemplateTimeoutTimer > 0) {
+                setTimeout(() => {
+                    // console.log("Запущен таймер на переключение файла в шаблоне");
+                    this.findCurrentContentInAllTemplates({ masterSchedule });
+                }, currentTemplateTimeoutTimer);
+            }
+
+
+            // __переключатель шаблонов__
+            if(currentScheduleEndTimeInMilliseconds <= currentTime && currentTime  <= nextScheduleEndTimeInMilliseconds) {
+                if(gymName === "zal-gp") {
+                    console.log("Запущен таймер на переключение шаблона");
+                }
+
+                setTimeout(() => {
+                    this.findCurrentContentInAllTemplates({ masterSchedule });
+                }, nextTemplateTimeoutTimer);
+            }
 
         }
 
